@@ -31,11 +31,11 @@
 
 - Competent
   - C (10+ years)
-  - Python 3 (7+ years)
+  - Python 3 (5+ years)
 - Profound
   - C++ 11 (2+ years)
-  - Assembly (5+ years)
-  - Go (5+ years)
+  - Assembly (3+ years)
+  - Go (3+ years)
 - Basic
   - Rust
   - HTML/CSS
@@ -66,6 +66,7 @@
 - Makefile/CMake
 - Docker/chroot/qemu
 - gdb
+- Visual Studio
 
 ### Embedded systems
 

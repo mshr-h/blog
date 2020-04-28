@@ -36,10 +36,10 @@ custom_css = ["css/custom-font.css"]
 
 [params.social]
 rss = true
-#email          = "mhg00g13@gmail.com"
 twitter = "https://twitter.com/mshrh3"
 linkedin = "https://www.linkedin.com/in/masahiro-hiramori-63b992167/"
 github = "https://github.com/mshr-h"
+googlescholar = "https://scholar.google.com/citations?user=NSCMi88AAAAJ"
 
 [[params.addtional_menus]]
 title = "CV"

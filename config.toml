@@ -3,10 +3,8 @@ title = "Keep Coding, Keep Climbing"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ja-jp"
 # Enable comments by entering your Disqus shortname
-disqusShortname = ""
-googleAnalytics = ""
 preserveTaxonomyNames = true
-paginate = 5 #frontpage pagination
+paginate = 10 #frontpage pagination
 hasCJKLanguage = true
 
 [outputs]
@@ -50,40 +48,32 @@ home = ["HTML", "RSS", "Algolia"]
   disqus_site = ""
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
-  reward = true 
+  reward = false 
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
-  friends = true
+  friends = false
   bookmarks = false
   about_me = true
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
+  custom_css = ["css/custom-font.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
 
   [params.social]
   rss            = true 
-  email          = "mhg00g13@gmail.com"
-  #facebook      = "full profile url in facebook"
-  #googleplus    = "full profile url in googleplus"
+  #email          = "mhg00g13@gmail.com"
   #twitter       = "full profile url in twitter"
-  #linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
-  #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
-  #instagram     = "full profile url in instagram"
-  #github         = "https://github.com/yourgithub"
-  #wechat         = "your wechat qr code image"
-  #medium         = "full profile url in medium"
-  #pinterest     = "full profile url in pinterest"
-  #reddit        = "full profile url in reddit"
-  #gitlab        = "full profile url in gitlab"
-  #mastodon      = "full profile url in mastodon"
-  #keybase       = "full profile url in keybase"
-  #xing          = "https://www.xing.com/profile/yourxingid"
-  #git           = "full profile url for git user"
+  linkedin       = "https://www.linkedin.com/in/masahiro-hiramori-63b992167/"
+  github         = "https://github.com/mshr-h"
     
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/top/about/"
+
+  [[params.addtional_menus]]
+  title =  "CV"
+  href =  "/top/cv/"
 
 [outputFormats.Algolia]
 baseName = "algolia"
@@ -101,3 +91,6 @@ params = ["categories", "tags"]
     startLevel = 1
   [markup.highlight]
     style = "dracula"
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -11,30 +11,30 @@ categories:  ["Climbing" ]
 draft:       false
 ---
 
-[https://www.youtube.com/watch?v=TMIIffUMV8g](https://www.youtube.com/watch?v=TMIIffUMV8g)
+{{< youtube TMIIffUMV8g >}}
 
-[https://www.youtube.com/watch?v=EdMsY5st2J8](https://www.youtube.com/watch?v=EdMsY5st2J8)
+{{< youtube EdMsY5st2J8 >}}
 
-[https://www.youtube.com/watch?v=1oPBOfakyMg](https://www.youtube.com/watch?v=1oPBOfakyMg)
+{{< youtube 1oPBOfakyMg >}}
 
-[https://www.youtube.com/watch?v=3T1EKenKYoE](https://www.youtube.com/watch?v=3T1EKenKYoE)
+{{< youtube 3T1EKenKYoE >}}
 
-[https://www.youtube.com/watch?v=ZRTNHDd0gL8](https://www.youtube.com/watch?v=ZRTNHDd0gL8)
+{{< youtube ZRTNHDd0gL8 >}}
 
-[https://www.youtube.com/watch?v=RzCrOg_oTfs](https://www.youtube.com/watch?v=RzCrOg_oTfs)
+{{< youtube RzCrOg_oTfs >}}
 
-[https://www.youtube.com/watch?v=v-dzoWnhIXc](https://www.youtube.com/watch?v=v-dzoWnhIXc)
+{{< youtube v-dzoWnhIXc >}}
 
-[https://www.youtube.com/watch?v=wnjFnU8fbEU](https://www.youtube.com/watch?v=wnjFnU8fbEU)
+{{< youtube wnjFnU8fbEU >}}
 
-[https://www.youtube.com/watch?v=51Ak_iwCnU0](https://www.youtube.com/watch?v=51Ak_iwCnU0)
+{{< youtube 51Ak_iwCnU0 >}}
 
-[https://www.youtube.com/watch?v=3yurFM3UyOA](https://www.youtube.com/watch?v=3yurFM3UyOA)
+{{< youtube 3yurFM3UyOA >}}
 
-[https://www.youtube.com/watch?v=WjAmnLFlkbk](https://www.youtube.com/watch?v=WjAmnLFlkbk)
+{{< youtube WjAmnLFlkbk >}}
 
-[https://www.youtube.com/watch?v=gBWjmjwpcc0](https://www.youtube.com/watch?v=gBWjmjwpcc0)
+{{< youtube gBWjmjwpcc0 >}}
 
-[https://www.youtube.com/watch?v=5P081rV7x_M](https://www.youtube.com/watch?v=5P081rV7x_M)
+{{< youtube 5P081rV7x_M >}}
 
-[https://www.youtube.com/watch?v=ckgYN3MXY68](https://www.youtube.com/watch?v=ckgYN3MXY68)
+{{< youtube ckgYN3MXY68 >}}

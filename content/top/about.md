@@ -1,4 +1,7 @@
-![](/img/avatar.jpg)
+---
+title:       "About"
+draft:       false
+---
 
 **_Masahiro Hiramori_**  is a SAMURAI researcher/engineer working for
 industrial company in Japan. My interest is how the computer works.

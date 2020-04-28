@@ -2,9 +2,7 @@ baseurl = "https://mshr-h.github.io"
 title = "Keep Coding, Keep Climbing"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ja-jp"
-# Enable comments by entering your Disqus shortname
-preserveTaxonomyNames = true
-paginate = 10 #frontpage pagination
+paginate = 8 #frontpage pagination
 hasCJKLanguage = true
 
 [outputs]
@@ -17,7 +15,7 @@ description = "programming and rock climbing"
 keyword = "programming, software, machine learning, climbing, bouldering, blog"
 slogan = "programming and rock climbing"
 image_404 = "img/404-bg.jpg"
-title_404 = "Sorry 404 not fould"
+title_404 = "404 Not Found"
 omit_categories = false
 # leancloud storage for page view counter
 page_view_conter = false
@@ -29,31 +27,17 @@ algolia_appId = ""
 algolia_indexName = ""
 algolia_apiKey = ""
 # Sidebar settings
-sidebar_about_description = "Research Enginner, Open Source Enthusiast and Rock Climber"
+sidebar_about_description = "Edge deep learning researcher/engineer, open source enthusiast and rock climber"
 sidebar_avatar = "img/avatar.jpg" # use absolute URL, seeing it's used in both `/` and `/about/`
 featured_tags = true
 featured_condition_size = 1
-# Baidu Analytics
-ba_track_id = ""
-# We need a proxy to access Disqus api in China
-# Follow https://github.com/zhaohuabing/disqus-php-api to set up your own disqus proxy
-disqus_proxy = ""
-disqus_site = ""
-#Enable wechat pay & alipay to allow readers send reward money if they like the articles
-reward = false
-# reward_guide = "如果这篇文章对你有用,请随意打赏"
-friends = false
-bookmarks = false
 about_me = true
-# Include any custom CSS and/or JS files, url or relative to /static folder
-#custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
 custom_css = ["css/custom-font.css"]
 
-#custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
 [params.social]
 rss = true
 #email          = "mhg00g13@gmail.com"
-#twitter       = "full profile url in twitter"
+twitter       = "https://twitter.com/mshrh3"
 linkedin = "https://www.linkedin.com/in/masahiro-hiramori-63b992167/"
 github = "https://github.com/mshr-h"
 
@@ -74,8 +58,6 @@ notAlternative = true
 [params.algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
 params = ["categories", "tags"]
-
-[markup]
 
 [markup.tableOfContents]
 endLevel = 2

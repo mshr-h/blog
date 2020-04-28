@@ -6,7 +6,7 @@ description: ""
 date:        "2020-04-14"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["Microcontroller", "Kozos"]
 categories:  ["Tech" ]
 draft:       false
 ---

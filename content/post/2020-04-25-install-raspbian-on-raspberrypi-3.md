@@ -6,7 +6,7 @@ description: ""
 date:        "2020-04-25"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["Raspberry Pi", "Linux"]
 categories:  ["Tech" ]
 draft:       false
 ---

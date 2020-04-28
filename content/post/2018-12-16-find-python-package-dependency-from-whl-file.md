@@ -5,7 +5,7 @@ description: ""
 date:        2018-12-16
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        ["python"]
+tags:        ["Python"]
 categories:  ["Tech" ]
 draft:       false
 ---

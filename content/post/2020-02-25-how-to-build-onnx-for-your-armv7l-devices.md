@@ -6,7 +6,7 @@ description: "In this blog post, I'll explain how to build onnx/onnx for ARMv7l 
 date:        "2020-02-25"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["ARM", "Linux", "ONNX Runtime"]
 categories:  ["Tech" ]
 draft:       false
 ---

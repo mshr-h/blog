@@ -6,7 +6,7 @@ description: ""
 date:        "2020-03-23"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["Next.js"]
 categories:  ["Tech" ]
 draft:       false
 ---

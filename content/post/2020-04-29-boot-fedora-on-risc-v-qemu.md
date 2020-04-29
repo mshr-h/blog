@@ -11,7 +11,7 @@ categories:  ["Tech" ]
 draft:       false
 ---
 
-macOS上のQEMUでRISC-V版Fedoraを動かしてみた。ビルド済みバイナリは下記から取得できる。
+macOS上のQEMUでRISC-V版Fedoraを動かしてみた。ビルド済みバイナリは下記から取得できるものを使用。
 - [https://fedorapeople.org/groups/risc-v/disk-images/](https://fedorapeople.org/groups/risc-v/disk-images/)
 
 # 実施環境

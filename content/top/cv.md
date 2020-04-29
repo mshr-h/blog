@@ -24,6 +24,10 @@
 
 - [vscode-verilog-hdl-support](https://github.com/mshr-h/vscode-verilog-hdl-support)
   - VS Code extension for Verilog HDL/SystemVerilog support
+- [motion_estimation_simulator](https://github.com/mshr-h/motion_estimation_simulator)
+  - Motion estimation simulator written in C
+- [awesome-bouldering](https://github.com/mshr-h/awesome-bouldering)
+  - A curated list of bouldering information
 
 ## Skills
 

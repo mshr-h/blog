@@ -21,7 +21,7 @@ Microsoft Visual C++という、Microsoft製のC/C++統合開発環境に付属�
 - `c1xx.dll`：Visual C++のフロントエンド
 - `c2.dll`：バックエンド
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9e9db814-f050-47af-8521-51aacfd70a70/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9e9db814-f050-47af-8521-51aacfd70a70/Untitled.png)
+![/img/post/2019-02-10-phoenix-compiler.png](/img/post/2019-02-10-phoenix-compiler.png)
 
 `cl.exe`
 

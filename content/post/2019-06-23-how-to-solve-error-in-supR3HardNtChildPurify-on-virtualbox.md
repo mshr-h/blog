@@ -12,7 +12,7 @@ draft:       false
 
 ある日、Windows上のVirtualBoxでVMを起動しようとしたら以下のエラーメッセージが出て起動しない問題が発生した。
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/abd2f625-f9d6-4e77-9cbb-122a7da2ec24/lupvyq7jkw5by6fggoue.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/abd2f625-f9d6-4e77-9cbb-122a7da2ec24/lupvyq7jkw5by6fggoue.png)
+![/img/post/2019-06-23-virtualbox.png](/img/post/2019-06-23-virtualbox.pngs)
 
 Webで検索してみたところ、4年ぐらい前のバージョンでも同様の問題が起きていたそう。
 

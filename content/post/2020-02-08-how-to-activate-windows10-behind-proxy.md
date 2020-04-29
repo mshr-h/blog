@@ -58,6 +58,6 @@ PS C:\\Windows\\system32> netsh winhttp show proxy
 PS C:\\Windows\\system32> slmgr.vbs -ipk AAAAA-BBBBB-CCCCC-DDDDD-EEEEE
 ```
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d532700-bad4-4ad8-8230-ffb2ae3ac12d/g5ig9owd4yo2rbbxjhar.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d532700-bad4-4ad8-8230-ffb2ae3ac12d/g5ig9owd4yo2rbbxjhar.png)
+![/img/post/2020-02-08-windows-activation.png](/img/post/2020-02-08-windows-activation.png)
 
 以上の手順でライセンス認証は完了。

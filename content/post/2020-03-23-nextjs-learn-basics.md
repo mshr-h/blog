@@ -47,9 +47,7 @@ Next.jsの公式チュートリアル[Next.js Learn (Basics)](https://nextjs.org
 
 # 作成したアプリ(Famous Quotes)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92d32a1f-3729-41f6-b344-71dd5a90884f/Screenshot_from_2020-03-23_20-58-12.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92d32a1f-3729-41f6-b344-71dd5a90884f/Screenshot_from_2020-03-23_20-58-12.png)
-
-Famous Quotes
+{{< figure src="/img/post/2020-03-23-nextjs-learn-basic.png" class="center" width="50%" height="50%" >}}
 
 # 学習メモ
 

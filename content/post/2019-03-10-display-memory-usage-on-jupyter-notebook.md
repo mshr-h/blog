@@ -22,4 +22,4 @@ pip install nbresuse
 
 Jupyter Notebookを起動すると、下図赤枠のようにメモリ使用量が表示さる。
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8e41106-2f0d-4f54-9d84-6f483a8559cc/v08bjzbim52rf21d5vkd.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8e41106-2f0d-4f54-9d84-6f483a8559cc/v08bjzbim52rf21d5vkd.png)
+![/img/post/2019-03-10-jupyter-notebook.png](/img/post/2019-03-10-jupyter-notebook.png)

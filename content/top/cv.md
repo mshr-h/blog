@@ -66,7 +66,7 @@
 
 ### Version control
 
-- Git
+- Git/GitHub/GitLab
 
 ### Development tools
 
@@ -96,7 +96,7 @@
 ### Web development
 
 - Next.js
-  - This website is based on Next.js+[ZEIT](https://zeit.co/)+[Notion](https://www.notion.so/)
+  - My previous website was based on Next.js+[Vercel](https://vercel.com/)+[Notion](https://www.notion.so/)
 
 ### Operating systems
 

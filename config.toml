@@ -1,5 +1,5 @@
 baseurl = "https://keepcodingkeepclimbing.com"
-title = "Keep Coding, Keep Climbing"
+title = "Keep Coding，Keep Climbing"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ja-jp"
 paginate = 8 #frontpage pagination
@@ -27,7 +27,7 @@ algolia_appId = ""
 algolia_indexName = ""
 algolia_apiKey = ""
 # Sidebar settings
-sidebar_about_description = "Edge deep learning researcher/engineer, open source enthusiast and rock climber"
+sidebar_about_description = "Edge deep learning research engineer, open source enthusiast and rock climber"
 sidebar_avatar = "img/avatar.jpg" # use absolute URL, seeing it's used in both `/` and `/about/`
 featured_tags = true
 featured_condition_size = 1
@@ -40,6 +40,7 @@ twitter = "https://twitter.com/mshrh3"
 linkedin = "https://www.linkedin.com/in/masahiro-hiramori-63b992167/"
 github = "https://github.com/mshr-h"
 googlescholar = "https://scholar.google.com/citations?user=NSCMi88AAAAJ"
+facebook = "https://www.facebook.com/masahiro.hiramori"
 
 [[params.addtional_menus]]
 title = "CV"

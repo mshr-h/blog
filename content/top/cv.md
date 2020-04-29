@@ -28,6 +28,8 @@
   - Motion estimation simulator written in C
 - [awesome-bouldering](https://github.com/mshr-h/awesome-bouldering)
   - A curated list of bouldering information
+- [fibonacci_verilog](https://github.com/mshr-h/fibonacci_verilog)
+  - Fibonacci number calcualtor cuicuit wirtten in Verilog-HDL
 
 ## Skills
 

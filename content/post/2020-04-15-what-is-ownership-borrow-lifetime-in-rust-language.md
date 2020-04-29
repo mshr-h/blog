@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2020-04-15"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Rust"]
 categories:  ["Tech" ]
 draft:       false

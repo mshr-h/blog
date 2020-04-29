@@ -4,7 +4,6 @@ subtitle:    ""
 description: ""
 date:        2018-12-16
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Python"]
 categories:  ["Tech" ]
 draft:       false

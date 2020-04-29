@@ -5,7 +5,6 @@ subtitle:    ""
 description: "In this blog post, I'll explain how to build onnx/onnx for ARMv7l devices."
 date:        "2020-02-25"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["ARM", "Linux", "ONNX Runtime"]
 categories:  ["Tech" ]
 draft:       false

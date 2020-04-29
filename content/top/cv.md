@@ -30,6 +30,8 @@
   - A curated list of bouldering information
 - [fibonacci_verilog](https://github.com/mshr-h/fibonacci_verilog)
   - Fibonacci number calcualtor cuicuit wirtten in Verilog-HDL
+- [gomirror](https://github.com/mshr-h/gomirror)
+  - Local directory mirroring tool written in Go
 
 ## Skills
 
@@ -73,6 +75,7 @@
 - Docker/chroot/qemu
 - gdb
 - Visual Studio
+- Travis CI
 
 ### Embedded systems
 

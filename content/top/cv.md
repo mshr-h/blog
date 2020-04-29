@@ -6,6 +6,11 @@
   - Information Technology R&#38;D Center, Mitsubishi Electric
   Corporation, Japan.
 
+## Education
+
+- M.S. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr. 2015 - Mar. 2017
+- B.A. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr.2011 - Mar. 2015
+
 ## Publications
 
 ### INTERNATIONAL CONFERENCES (REFEREED)
@@ -24,6 +29,8 @@
 
 ## Activities
 
+### Projects
+
 - [vscode-verilog-hdl-support](https://github.com/mshr-h/vscode-verilog-hdl-support)
   - VS Code extension for Verilog HDL/SystemVerilog support
 - [motion_estimation_simulator](https://github.com/mshr-h/motion_estimation_simulator)
@@ -34,6 +41,13 @@
   - Fibonacci number calcualtor cuicuit wirtten in Verilog-HDL
 - [gomirror](https://github.com/mshr-h/gomirror)
   - Local directory mirroring tool written in Go
+
+### OSS Contributions
+
+- dense-analysis/ale
+  - [Commits list in GitHub](https://github.com/dense-analysis/ale/commits?author=mshr-h)
+- textmate/verilog.tmbundle
+  - [Commits list in GitHub](https://github.com/textmate/verilog.tmbundle/commits?author=mshr-h)
 
 ## Skills
 
@@ -55,16 +69,9 @@
 ### Machine learning tools
 
 - TensorFlow/TensorFlow Lite
-  - Basic usage
-  - Dataset API usage
-  - Internal architecture
-  - Build from source code
 - PyTorch
 - Caffe
 - ONNX Runtime
-  - Basic usage
-  - Internal architecture
-  - Build from source code
 
 ### Version control
 
@@ -109,13 +116,6 @@
 - macOS
   - My personal Laptop
 
-## OSS Contributions
-
-- dense-analysis/ale
-  - [Commits list in GitHub](https://github.com/dense-analysis/ale/commits?author=mshr-h)
-- textmate/verilog.tmbundle
-  - [Commits list in GitHub](https://github.com/textmate/verilog.tmbundle/commits?author=mshr-h)
-
 ## Languages
 
 - Japanese - ILR Level 5 (Native or bilingual proficiency)
@@ -128,7 +128,3 @@
 - Embedded Systems Specialist Examination (エンベデッドシステムスペシャリスト試験) | June 2015
 - Information Security Specialist Examination (情報セキュリティスペシャリスト試験)
 
-## Education
-
-- M.S. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr. 2015 - Mar. 2017
-- B.A. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr.2011 - Mar. 2015

@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        2018-12-19
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        []
 categories:  ["Tech"]
 draft:       false

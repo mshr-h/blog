@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2020-04-27"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Raspberry Pi", "Linux", "TensorFlow Lite"]
 categories:  ["Tech" ]
 draft:       false

@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        2018-12-17
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Computer Architecture"]
 categories:  ["Tech"]
 draft:       false

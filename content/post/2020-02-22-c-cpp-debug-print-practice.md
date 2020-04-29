@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2020-02-22"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        []
 categories:  ["Tech" ]
 draft:       false

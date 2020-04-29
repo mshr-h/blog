@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2020-04-16"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["H8/3069F", "Kozos", "Microcontroller"]
 categories:  ["Tech" ]
 draft:       false

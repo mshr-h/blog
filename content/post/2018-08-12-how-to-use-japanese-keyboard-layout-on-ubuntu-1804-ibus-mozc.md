@@ -4,7 +4,6 @@ subtitle:    ""
 description: ""
 date:        2018-06-04
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Linux"]
 categories:  ["Tech" ]
 draft:       false

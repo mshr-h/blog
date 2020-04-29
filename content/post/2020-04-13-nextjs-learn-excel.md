@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2020-04-13"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        ["Next.js"]
 categories:  ["Tech" ]
 draft:       false

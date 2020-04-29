@@ -5,7 +5,6 @@ subtitle:    ""
 description: ""
 date:        "2019-12-31"
 author:      "Masahiro Hiramori"
-image:       ""
 tags:        []
 categories:  ["Climbing" ]
 draft:       false

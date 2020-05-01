@@ -1,6 +1,6 @@
 ---
-title: "[メモ]UNIXコマンド"
-slug: "memo-unix-commands"
+title: "UNIXコマンド Tips"
+slug: "unix-commands-tips"
 subtitle:    ""
 description: ""
 date:        "2020-04-24"

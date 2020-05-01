@@ -1,5 +1,5 @@
 baseurl = "https://keepcodingkeepclimbing.com/"
-title = "Keep Coding，Keep Climbing"
+title = "Keep Coding, Keep Climbing"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ja-jp"
 paginate = 8 #frontpage pagination

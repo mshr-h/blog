@@ -2,6 +2,7 @@ baseurl = "https://keepcodingkeepclimbing.com/"
 title = "Keep Coding, Keep Climbing"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ja-jp"
+googleAnalytics = "UA-165309045-1"
 paginate = 8 #frontpage pagination
 hasCJKLanguage = true
 

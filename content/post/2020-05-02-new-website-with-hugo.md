@@ -6,7 +6,7 @@ description: ""
 date:        "2020-05-02"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["Hugo"]
 categories:  ["Tech" ]
 draft:       false
 ---

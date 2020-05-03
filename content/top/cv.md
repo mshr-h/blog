@@ -48,6 +48,8 @@
   - [Commits list in GitHub](https://github.com/dense-analysis/ale/commits?author=mshr-h)
 - textmate/verilog.tmbundle
   - [Commits list in GitHub](https://github.com/textmate/verilog.tmbundle/commits?author=mshr-h)
+- shinofara/stand
+  - [Commits list in GitHub](https://github.com/shinofara/stand/commits?author=mshr-h)
 
 ## Skills
 

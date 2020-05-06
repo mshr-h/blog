@@ -3,7 +3,7 @@
 ## Employment
 
 * Research Engineer, Apr. 2017 - Present
-  + Information Technology R&#38; D Center, Mitsubishi Electric
+  + Information Technology R&#38;D Center, Mitsubishi Electric
 
   Corporation, Japan.
 
@@ -126,7 +126,7 @@
 
 ## Certifications
 
-* TOEIC Listening & Reading score 840 | May 2017
-* TOEIC Speaking & Writing score 210 | Jan 2015
+* TOEIC Listening &#38; Reading score 840 | May 2017
+* TOEIC Speaking &#38; Writing score 210 | Jan 2015
 * Embedded Systems Specialist Examination (エンベデッドシステムスペシャリスト試験) | June 2015
-* Information Security Specialist Examination (情報セキュリティスペシャリスト試験)
+* Information Security Specialist Examination (情報セキュリティスペシャリスト試験) | Dec 2014

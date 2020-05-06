@@ -3,9 +3,7 @@
 ## Employment
 
 * Research Engineer, Apr. 2017 - Present
-  + Information Technology R&#38;D Center, Mitsubishi Electric
-
-  Corporation, Japan.
+  + Information Technology R&#38;D Center, Mitsubishi Electric Corporation, Japan.
 
 ## Education
 

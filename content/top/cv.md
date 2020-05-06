@@ -1,5 +1,14 @@
 # Curriculum Vitae
 
+## Basic information
+
+* 平森 将裕 (Hiramori Masahiro)
+* 📧 mhg00g13_at_gmail.com (replace `_at_` with `@`)
+* 🌏 Kanagawa, Japan
+* Language
+  + Japanese - ILR Level 5 (Native or bilingual proficiency)
+  + English - ILR Level 2 (Limited working proficiency)
+
 ## Employment
 
 * Research Engineer, Apr. 2017 - Present
@@ -116,11 +125,6 @@
   + My main working machine is Ubuntu
 * macOS
   + My personal Laptop
-
-## Languages
-
-* Japanese - ILR Level 5 (Native or bilingual proficiency)
-* English - ILR Level 2 (Limited working proficiency)
 
 ## Certifications
 

@@ -85,7 +85,7 @@
 * Docker/chroot/qemu
 * gdb
 * Visual Studio
-* Travis CI
+* Travis CI/GitHub Actions
 
 ### Embedded systems
 

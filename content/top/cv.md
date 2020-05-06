@@ -43,12 +43,12 @@
   + VS Code extension for Verilog HDL/SystemVerilog support
 * [motion_estimation_simulator](https://github.com/mshr-h/motion_estimation_simulator)
   + Motion estimation simulator written in C
-* [awesome-bouldering](https://github.com/mshr-h/awesome-bouldering)
-  + A curated list of bouldering information
 * [fibonacci_verilog](https://github.com/mshr-h/fibonacci_verilog)
   + Fibonacci number calcualtor cuicuit wirtten in Verilog-HDL
 * [gomirror](https://github.com/mshr-h/gomirror)
   + Local directory mirroring tool written in Go
+* [awesome-bouldering](https://github.com/mshr-h/awesome-bouldering)
+  + A curated list of bouldering information
 
 ### OSS Contributions
 
@@ -66,6 +66,7 @@
 * Competent
   + C (10+ years)
   + Python 3 (5+ years)
+    - Python and C/C++ interoperation(pybind11/Boost.Python/ctypes/Cython)
 * Profound
   + C++ 11 (2+ years)
   + Assembly (3+ years)

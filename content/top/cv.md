@@ -2,9 +2,9 @@
 
 ## Basic information
 
-* 平森 将裕 (Hiramori Masahiro)
-* 📧 mhg00g13_at_gmail.com (replace `_at_` with `@`)
-* 🌏 Kanagawa, Japan
+* Name: Hiramori Masahiro (平森 将裕)
+* E-mail: mhg00g13 at gmail.com
+* Live in: Kanagawa, Japan
 * Language
   + Japanese - ILR Level 5 (Native or bilingual proficiency)
   + English - ILR Level 2 (Limited working proficiency)
@@ -71,11 +71,6 @@
   + C++ 11 (2+ years)
   + Assembly (3+ years)
   + Go (3+ years)
-* Basic
-  + Rust
-  + HTML/CSS
-  + JavaScript
-  + TypeScript
 
 ### Machine learning tools
 

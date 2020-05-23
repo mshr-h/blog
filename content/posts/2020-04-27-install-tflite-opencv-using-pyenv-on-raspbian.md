@@ -10,7 +10,7 @@ categories:  ["Tech" ]
 draft:       false
 ---
 
-[前回の記事]({{< ref "/post/2020-04-25-install-raspbian-on-raspberrypi-3.md" >}})で導入したRaspbian Busterに、TensorFlow LiteとOpenCVの環境を構築したのでメモ。
+[前回の記事]({{< ref "/posts/2020-04-25-install-raspbian-on-raspberrypi-3.md" >}})で導入したRaspbian Busterに、TensorFlow LiteとOpenCVの環境を構築したのでメモ。
 
 # Python 3.7.7導入
 

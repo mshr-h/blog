@@ -5,7 +5,7 @@ subtitle:    ""
 description: ""
 date:        "2020-04-24"
 author:      "Masahiro Hiramori"
-tags:        []
+tags:        ["tips"]
 categories:  ["Tech" ]
 draft:       false
 ---

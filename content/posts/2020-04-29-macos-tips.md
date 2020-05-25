@@ -6,7 +6,7 @@ description: ""
 date:        "2020-04-29"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        ["macOS"]
+tags:        ["macOS", "tips"]
 categories:  ["Tech" ]
 draft:       false
 ---

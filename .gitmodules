@@ -1,10 +1,6 @@
 [submodule "themes/hugo-theme-cleanwhite"]
 	path = themes/hugo-theme-cleanwhite
 	url = https://github.com/zhaohuabing/hugo-theme-cleanwhite.git
-[submodule "public"]
-	path = public
-	url = git@github.com:mshr-h/mshr-h.github.io.git
-	branch = master
 [submodule "themes/hugo-academic"]
 	path = themes/hugo-academic
 	url = https://github.com/gcushen/hugo-academic

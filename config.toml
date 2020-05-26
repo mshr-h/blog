@@ -60,8 +60,8 @@ identifier = "cv"
 pre = ""
 post = ""
 name = "CV"
-url = "/cv/"
-title = "CV"
+url = "/cv"
+title = ""
 weight = 4
 
 [[languages.en.menu.main]]

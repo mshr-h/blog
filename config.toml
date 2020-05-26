@@ -146,7 +146,7 @@ RSS = true
 
 [params]
 # LoveIt theme version
-version = ""
+version = "0.2.X"
 # site default theme ("light", "dark", "auto")
 defaultTheme = "auto"
 # public git repo url only then enableGitInfo is true

@@ -1,6 +1,6 @@
 ---
-title:       "About"
-draft:       false
+title: "About"
+draft: false
 ---
 
 **_Masahiro Hiramori_**  is a SAMURAI research engineer working for

@@ -1,3 +1,8 @@
+---
+title:  "Curriculum Vitae"
+draft:  false
+---
+
 # Curriculum Vitae
 
 ## Basic information

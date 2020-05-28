@@ -57,12 +57,12 @@ for i in range(5):
 ```
 テーブル`sample`からレコードを取得し、5件表示する。
 
-# 全体ソースコード
-
 ```python3
 conn.close()
 ```
 接続を閉じる。
+
+# 全体ソースコード
 
 ```python3
 import numpy as np

@@ -3,7 +3,7 @@ title: "Python3からSQLiteを使う"
 slug: "sqlite-from-python3"
 subtitle:    ""
 description: ""
-date:        "2020-05-29"
+date:        "2020-05-28"
 author:      "Masahiro Hiramori"
 image:       ""
 tags:        ["Python", "SQLite"]

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Keep Coding, Keep Climbing">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="Linux(WSL)上でTensorFlowをソースコードからビルドする" />
+    <meta property="og:title" content="Linux(WSL)上でTensorFlowをソースコードからビルドする" />
+    <meta property="twitter:title" content="Linux(WSL)上でTensorFlowをソースコードからビルドする" />
+    
+
+    
+    <meta name="description" content="programming and rock climbing">
+    <meta property="og:description" content="programming and rock climbing" />
+    <meta property="twitter:description" content="programming and rock climbing" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="programming, software, machine learning, climbing, bouldering, blog">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Linux(WSL)上でTensorFlowをソースコードからビルドする-Keep Coding, Keep Climbing</title>
+
+    <link rel="canonical" href="/post/how-to-build-from-tensorflow-on-wsl/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="https://keepcodingkeepclimbing.com/css/custom-font.css">
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Keep Coding, Keep Climbing</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/climbing">climbing</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/cv/">CV</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Linux(WSL)上でTensorFlowをソースコードからビルドする</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Masahiro Hiramori&#34;
+                         
+                        on 
+                        Wednesday, December 19, 2018
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ビルドに必要なpythonパッケージの導入">ビルドに必要なPythonパッケージの導入</a></li>
+    <li><a href="#bazelの導入">Bazelの導入</a></li>
+    <li><a href="#tensorflowソースコード取得">TensorFlowソースコード取得</a></li>
+    <li><a href="#ビルドコンフィグ生成">ビルドコンフィグ生成</a></li>
+    <li><a href="#ビルド実施">ビルド実施</a></li>
+    <li><a href="#ビルドしたtensorflowの導入">ビルドしたTensorFlowの導入</a></li>
+    <li><a href="#mnistを学習">MNISTを学習</a></li>
+  </ul>
+</nav>
+                
+                <p>ディープラーニングフレームワークのTensorFlowは、Googleが開発しており、ビルド済みのTensorFlowも提供されている。しかし、動作させるCPUによって、対応する拡張命令は異なる。ソースコードからビルドすることで、特定の環境でTensorFlowを高速に動作することが可能となる。
+今回は、Linux(WSL)上でTensorFlowをソースコードからビルドする方法について書く。ビルドに使用するPC環境は以下のとおり。</p>
+<ul>
+<li>Ryzen 5 1600</li>
+<li>32GBメモリ</li>
+<li>Windows Subsystem for Linux(Ubuntu 18.04)</li>
+</ul>
+<p>今回は以下の構成でビルドする。</p>
+<ul>
+<li>TensorFlow v1.12.0</li>
+<li>Python 2</li>
+<li>GPUサポートは無し</li>
+</ul>
+<p>基本的には、以下の公式ページ通りに進めることでビルドできるが、最新版Bazelを使うとビルドエラーになるため、古いバージョンを導入する必要があることに注意。</p>
+<ul>
+<li><a href="https://www.tensorflow.org/install/source">Build from source | TensorFlow</a></li>
+</ul>
+<p>ビルドの流れとしては、</p>
+<ul>
+<li>必要なPythonパッケージ、ビルドツールの導入</li>
+<li>ソースコードの取得</li>
+<li>ビルドコンフィグの生成</li>
+<li>ビルド実施</li>
+</ul>
+<p>の順で進める。</p>
+<h1 id="ビルドに必要なpythonパッケージの導入">ビルドに必要なPythonパッケージの導入</h1>
+<p>公式手順通りにPythonパッケージを導入する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install -y python-dev python-pip
+$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user <span style="color:#8be9fd;font-style:italic">keras_applications</span><span style="color:#ff79c6">==</span>1.0.6 --no-deps
+$ pip install -U --user <span style="color:#8be9fd;font-style:italic">keras_preprocessing</span><span style="color:#ff79c6">==</span>1.0.5 --no-deps
+</code></pre></div><h1 id="bazelの導入">Bazelの導入</h1>
+<p>2018/12/16時点の最新版(0.20.0)だとビルドできないので、古い0.15.0を導入する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://github.com/bazelbuild/bazel/releases/download/0.15.0/bazel_0.15.0-linux-x86_64.deb
+$ sudo dpkg -i bazel_0.15.0-linux-x86_64.deb
+$ sudo apt install -f -y
+</code></pre></div><h1 id="tensorflowソースコード取得">TensorFlowソースコード取得</h1>
+<p>TensorFlowのソースコードを取得します。今回は、v1.12.0をビルドするので、該当tagをチェックアウトする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/tensorflow/tensorflow
+$ <span style="color:#8be9fd;font-style:italic">cd</span> tensorflow
+$ git checkout v1.12.0
+</code></pre></div><h1 id="ビルドコンフィグ生成">ビルドコンフィグ生成</h1>
+<p>ビルドコンフィグを生成する。今回はデフォルトのままで進める。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./configure
+WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files:
+/home/mshr/tensorflow/tools/bazel.rc
+WARNING: --batch mode is deprecated. Please instead explicitly shut down your Bazel server using the <span style="color:#8be9fd;font-style:italic">command</span> <span style="color:#f1fa8c">&#34;bazel shutdown&#34;</span>.
+INFO: Invocation ID: 2e09c61f-cc51-4ae2-9704-46e8b8f239f5
+You have bazel 0.20.0 installed.
+Please specify the location of python. <span style="color:#ff79c6">[</span>Default is /usr/bin/python<span style="color:#ff79c6">]</span>:
+Found possible Python library paths:
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+Please input the desired Python library path to use.  Default is <span style="color:#ff79c6">[</span>/usr/local/lib/python2.7/dist-packages<span style="color:#ff79c6">]</span>
+Do you wish to build TensorFlow with Apache Ignite support? <span style="color:#ff79c6">[</span>Y/n<span style="color:#ff79c6">]</span>:
+Apache Ignite support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Do you wish to build TensorFlow with XLA JIT support? <span style="color:#ff79c6">[</span>Y/n<span style="color:#ff79c6">]</span>:
+XLA JIT support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Do you wish to build TensorFlow with OpenCL SYCL support? <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+No OpenCL SYCL support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Do you wish to build TensorFlow with ROCm support? <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+No ROCm support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Do you wish to build TensorFlow with CUDA support? <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+No CUDA support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Do you wish to download a fresh release of clang? <span style="color:#ff79c6">(</span>Experimental<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+Clang will not be downloaded.
+Do you wish to build TensorFlow with MPI support? <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+No MPI support will be enabled <span style="color:#ff79c6">for</span> TensorFlow.
+Please specify optimization flags to use during compilation when bazel option <span style="color:#f1fa8c">&#34;--config=opt&#34;</span> is specified <span style="color:#ff79c6">[</span>Default is -march<span style="color:#ff79c6">=</span>native<span style="color:#ff79c6">]</span>:
+Would you like to interactively configure ./WORKSPACE <span style="color:#ff79c6">for</span> Android builds? <span style="color:#ff79c6">[</span>y/N<span style="color:#ff79c6">]</span>:
+Not configuring the WORKSPACE <span style="color:#ff79c6">for</span> Android builds.
+Preconfigured Bazel build configs. You can use any of the below by adding <span style="color:#f1fa8c">&#34;--config=&lt;&gt;&#34;</span> to your build command. See tools/bazel.rc <span style="color:#ff79c6">for</span> more details.
+        --config<span style="color:#ff79c6">=</span>mkl            <span style="color:#6272a4"># Build with MKL support.</span>
+        --config<span style="color:#ff79c6">=</span>monolithic     <span style="color:#6272a4"># Config for mostly static monolithic build.</span>
+        --config<span style="color:#ff79c6">=</span>gdr            <span style="color:#6272a4"># Build with GDR support.</span>
+        --config<span style="color:#ff79c6">=</span>verbs          <span style="color:#6272a4"># Build with libverbs support.</span>
+        --config<span style="color:#ff79c6">=</span>ngraph         <span style="color:#6272a4"># Build with Intel nGraph support.</span>
+Configuration finished
+</code></pre></div><h1 id="ビルド実施">ビルド実施</h1>
+<p>ビルドを開始する。今回のビルド環境だと1時間半程度かかる。</p>
+<pre><code>$ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+・・省略・・
+INFO: From Executing genrule //tensorflow/python/estimator/api:estimator_python_api_gen:
+tf.estimator package not installed.
+tf.estimator package not installed.
+Target //tensorflow/tools/pip_package:build_pip_package up-to-date:
+  bazel-bin/tensorflow/tools/pip_package/build_pip_package
+INFO: Elapsed time: 5474.748s, Critical Path: 172.25s
+INFO: 10641 processes: 10641 local.
+INFO: Build completed successfully, 11347 total actions
+ビルド完了後、PythonのPIPパッケージを作成します。作成には15分ほどかかります。
+$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+Sat Dec 15 22:47:56 DST 2018 : === Preparing sources in dir: /tmp/tmp.qmE6tTngOh
+~/tensorflow ~/tensorflow
+~/tensorflow
+Sat Dec 15 22:49:18 DST 2018 : === Building wheel
+warning: no files found matching '*.pd' under directory '*'
+warning: no files found matching '*.dll' under directory '*'
+warning: no files found matching '*.lib' under directory '*'
+warning: no files found matching '*.h' under directory 'tensorflow/include/tensorflow'
+warning: no files found matching '*' under directory 'tensorflow/include/Eigen'
+warning: no files found matching '*.h' under directory 'tensorflow/include/google'
+warning: no files found matching '*' under directory 'tensorflow/include/third_party'
+warning: no files found matching '*' under directory 'tensorflow/include/unsupported'
+Sat Dec 15 22:50:10 DST 2018 : === Output wheel file is in: /tmp/tensorflow_pkg
+</code></pre><h1 id="ビルドしたtensorflowの導入">ビルドしたTensorFlowの導入</h1>
+<p>pipコマンドによりビルドしたTensorFlowを導入する。</p>
+<pre><code>$ pip install --user /tmp/tensorflow_pkg/tensorflow-1.12.0-cp27-cp27mu-linux_x86_64.whl
+</code></pre><h1 id="mnistを学習">MNISTを学習</h1>
+<p>ビルドしたTensorFlowの動作確認のために、TensorFlow公式チュートリアルに記載のMNISTを学習する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">import</span> tensorflow <span style="color:#ff79c6">as</span> tf
+mnist <span style="color:#ff79c6">=</span> tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>datasets<span style="color:#ff79c6">.</span>mnist
+
+(x_train, y_train),(x_test, y_test) <span style="color:#ff79c6">=</span> mnist<span style="color:#ff79c6">.</span>load_data()
+x_train, x_test <span style="color:#ff79c6">=</span> x_train <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">255.0</span>, x_test <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">255.0</span>
+
+model <span style="color:#ff79c6">=</span> tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>models<span style="color:#ff79c6">.</span>Sequential([
+  tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>layers<span style="color:#ff79c6">.</span>Flatten(),
+  tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>layers<span style="color:#ff79c6">.</span>Dense(<span style="color:#bd93f9">512</span>, activation<span style="color:#ff79c6">=</span>tf<span style="color:#ff79c6">.</span>nn<span style="color:#ff79c6">.</span>relu),
+  tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>layers<span style="color:#ff79c6">.</span>Dropout(<span style="color:#bd93f9">0.2</span>),
+  tf<span style="color:#ff79c6">.</span>keras<span style="color:#ff79c6">.</span>layers<span style="color:#ff79c6">.</span>Dense(<span style="color:#bd93f9">10</span>, activation<span style="color:#ff79c6">=</span>tf<span style="color:#ff79c6">.</span>nn<span style="color:#ff79c6">.</span>softmax)
+])
+model<span style="color:#ff79c6">.</span>compile(optimizer<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;adam&#39;</span>,
+              loss<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;sparse_categorical_crossentropy&#39;</span>,
+              metrics<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;accuracy&#39;</span>])
+
+model<span style="color:#ff79c6">.</span>fit(x_train, y_train, epochs<span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>)
+model<span style="color:#ff79c6">.</span>evaluate(x_test, y_test)
+</code></pre></div><p>以上で、TensorFlowをソースコードからビルドし、MNISTの学習を実施し、ビルドしたTensorFlowの動作を確認した。次回は、拡張命令の有無による動作速度の変化を検証したい。</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/what-is-byteorder/" data-toggle="tooltip" data-placement="top" title="バイトオーダー(エンディアン)についてメモ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/golicense-generate-license-file-from-cli/" data-toggle="tooltip" data-placement="top" title="LICENSEファイルを生成するgolicenseを作った">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kozos" title="kozos">
+                            kozos
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/microcontroller" title="microcontroller">
+                            microcontroller
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/raspberry-pi" title="raspberry-pi">
+                            raspberry-pi
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/rust" title="rust">
+                            rust
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href='' rel="alternate"
+                            type="application/rss+xml" title="Keep Coding, Keep Climbing">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/mshrh3">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=NSCMi88AAAAJ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/masahiro.hiramori">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/mshr-h">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/masahiro-hiramori-63b992167/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Keep Coding, Keep Climbing 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a
+                        href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if ($('#tag_cloud').length !== 0) {
+        async("/js/jquery.tagcloud.js", function () {
+            $.fn.tagcloud.defaults = {
+                
+                color: { start: '#bbbbee', end: '#0085a1' },
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-165309045-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

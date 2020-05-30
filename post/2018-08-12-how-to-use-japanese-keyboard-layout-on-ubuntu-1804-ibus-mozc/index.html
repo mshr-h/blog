@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Keep Coding, Keep Climbing">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法" />
+    <meta property="og:title" content="Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法" />
+    <meta property="twitter:title" content="Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法" />
+    
+
+    
+    <meta name="description" content="programming and rock climbing">
+    <meta property="og:description" content="programming and rock climbing" />
+    <meta property="twitter:description" content="programming and rock climbing" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="programming, software, machine learning, climbing, bouldering, blog">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法-Keep Coding, Keep Climbing</title>
+
+    <link rel="canonical" href="/post/2018-08-12-how-to-use-japanese-keyboard-layout-on-ubuntu-1804-ibus-mozc/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="https://keepcodingkeepclimbing.com/css/custom-font.css">
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Keep Coding, Keep Climbing</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/climbing">climbing</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/cv/">CV</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linux" title="Linux">
+                            Linux
+                        </a>
+                        
+                    </div>
+                    <h1>Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Masahiro Hiramori&#34;
+                         
+                        on 
+                        Monday, June 4, 2018
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#解決策">解決策</a></li>
+  </ul>
+</nav>
+                
+                <p>Ubuntu 18.04にibus-mozcをインストールしたところ、キーボード配列が日本語にならなかった。ibus-mozcの設定を書き換えると解決したので防備録。</p>
+<h1 id="検証環境">検証環境</h1>
+<ul>
+<li>Ubuntu 18.04 LTS</li>
+<li>ibus-mozc 2.20.2673.102</li>
+</ul>
+<h1 id="解決策">解決策</h1>
+<p>ibus-mozcの設定ファイルを開く。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vi /usr/share/ibus/component/mozc.xml
+</code></pre></div><p>下から6行目の<layout>default</layout>を<layout>jp</layout>に書き換える。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;component&gt;</span>
+  <span style="color:#ff79c6">&lt;version&gt;</span>2.20.2673.102+dfsg-2<span style="color:#ff79c6">&lt;/version&gt;</span>
+  <span style="color:#ff79c6">&lt;name&gt;</span>com.google.IBus.Mozc<span style="color:#ff79c6">&lt;/name&gt;</span>
+  <span style="color:#ff79c6">&lt;license&gt;</span>New BSD<span style="color:#ff79c6">&lt;/license&gt;</span>
+  <span style="color:#ff79c6">&lt;exec&gt;</span>/usr/lib/ibus-mozc/ibus-engine-mozc --ibus<span style="color:#ff79c6">&lt;/exec&gt;</span>
+  <span style="color:#ff79c6">&lt;textdomain&gt;</span>ibus-mozc<span style="color:#ff79c6">&lt;/textdomain&gt;</span>
+  <span style="color:#ff79c6">&lt;author&gt;</span>Google Inc.<span style="color:#ff79c6">&lt;/author&gt;</span>
+  <span style="color:#ff79c6">&lt;homepage&gt;&lt;https:</span>//github.com/google/mozc<span style="color:#ff79c6">&gt;&lt;/homepage&gt;</span>
+  <span style="color:#ff79c6">&lt;description&gt;</span>Mozc Component<span style="color:#ff79c6">&lt;/description&gt;</span>
+<span style="color:#ff79c6">&lt;engines&gt;</span>
+<span style="color:#ff79c6">&lt;engine&gt;</span>
+  <span style="color:#ff79c6">&lt;description&gt;</span>Mozc (Japanese Input Method)<span style="color:#ff79c6">&lt;/description&gt;</span>
+  <span style="color:#ff79c6">&lt;language&gt;</span>ja<span style="color:#ff79c6">&lt;/language&gt;</span>
+  <span style="color:#ff79c6">&lt;symbol&gt;</span>&amp;#x3042;<span style="color:#ff79c6">&lt;/symbol&gt;</span>
+  <span style="color:#ff79c6">&lt;rank&gt;</span>80<span style="color:#ff79c6">&lt;/rank&gt;</span>
+  <span style="color:#ff79c6">&lt;icon_prop_key&gt;</span>InputMode<span style="color:#ff79c6">&lt;/icon_prop_key&gt;</span>
+  <span style="color:#ff79c6">&lt;icon&gt;</span>/usr/share/ibus-mozc/product_icon.png<span style="color:#ff79c6">&lt;/icon&gt;</span>
+  <span style="color:#ff79c6">&lt;setup&gt;</span>/usr/lib/mozc/mozc_tool --mode=config_dialog<span style="color:#ff79c6">&lt;/setup&gt;</span>
+  <span style="color:#ff79c6">&lt;layout&gt;</span>default<span style="color:#ff79c6">&lt;/layout&gt;</span>
+  <span style="color:#ff79c6">&lt;name&gt;</span>mozc-jp<span style="color:#ff79c6">&lt;/name&gt;</span>
+  <span style="color:#ff79c6">&lt;longname&gt;</span>Mozc<span style="color:#ff79c6">&lt;/longname&gt;</span>
+<span style="color:#ff79c6">&lt;/engine&gt;</span>
+<span style="color:#ff79c6">&lt;/engines&gt;</span>
+<span style="color:#ff79c6">&lt;/component&gt;</span>
+</code></pre></div><p>ログアウトし、再ログインするとキーボード配列が日本語になる。</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2018-12-16-find-python-package-dependency-from-whl-file/" data-toggle="tooltip" data-placement="top" title="あるPythonパッケージが依存するライブラリ一覧をwhlファイルから探す">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kozos" title="kozos">
+                            kozos
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/microcontroller" title="microcontroller">
+                            microcontroller
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/raspberry-pi" title="raspberry-pi">
+                            raspberry-pi
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/rust" title="rust">
+                            rust
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href='' rel="alternate"
+                            type="application/rss+xml" title="Keep Coding, Keep Climbing">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/mshrh3">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=NSCMi88AAAAJ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/masahiro.hiramori">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/mshr-h">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/masahiro-hiramori-63b992167/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Keep Coding, Keep Climbing 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a
+                        href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if ($('#tag_cloud').length !== 0) {
+        async("/js/jquery.tagcloud.js", function () {
+            $.fn.tagcloud.defaults = {
+                
+                color: { start: '#bbbbee', end: '#0085a1' },
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-165309045-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

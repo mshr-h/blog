@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Keep Coding, Keep Climbing">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="Next.js Learn (Excel)で静的コンテンツ生成などを学んだ" />
+    <meta property="og:title" content="Next.js Learn (Excel)で静的コンテンツ生成などを学んだ" />
+    <meta property="twitter:title" content="Next.js Learn (Excel)で静的コンテンツ生成などを学んだ" />
+    
+
+    
+    <meta name="description" content="programming and rock climbing">
+    <meta property="og:description" content="programming and rock climbing" />
+    <meta property="twitter:description" content="programming and rock climbing" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="programming, software, machine learning, climbing, bouldering, blog">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Next.js Learn (Excel)で静的コンテンツ生成などを学んだ-Keep Coding, Keep Climbing</title>
+
+    <link rel="canonical" href="/post/nextjs-learn-excel/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="https://keepcodingkeepclimbing.com/css/custom-font.css">
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Keep Coding, Keep Climbing</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/climbing">climbing</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/cv/">CV</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/next.js" title="Next.js">
+                            Next.js
+                        </a>
+                        
+                    </div>
+                    <h1>Next.js Learn (Excel)で静的コンテンツ生成などを学んだ</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Masahiro Hiramori&#34;
+                         
+                        on 
+                        Monday, April 13, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#内容">内容</a></li>
+    <li><a href="#export-into-a-static-html-app">Export into a Static HTML App</a></li>
+    <li><a href="#typescript">TypeScript</a></li>
+    <li><a href="#create-amp-pages">Create AMP Pages</a></li>
+    <li><a href="#automatic-static-optimization">Automatic Static Optimization</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
+                
+                <p>以前、<a href="https://keepcodingkeepclimbing.com/blog/nextjs-learn-basics">Next.js Learn (Basics)でNext.jsの基礎を学んだ</a>でNext.jsのチュートリアルを実施した。今回は続きの<a href="https://nextjs.org/learn/excel/static-html-export">Next.js Learn (Excel)</a>を実施したので、まとめた。</p>
+<h1 id="内容">内容</h1>
+<p>Next.js Learn (Excel)は4つのレッスンで構成されている。</p>
+<ul>
+<li><a href="https://nextjs.org/learn/excel/static-html-export">Export into a Static HTML App</a></li>
+<li><a href="https://nextjs.org/learn/excel/typescript">TypeScript</a></li>
+<li><a href="https://nextjs.org/learn/excel/amp">Create AMP Pages</a></li>
+<li><a href="https://nextjs.org/learn/excel/automatic-static-optimization">Automatic Static Optimization</a></li>
+</ul>
+<h1 id="export-into-a-static-html-app">Export into a Static HTML App</h1>
+<p>Next.js Learn (Basics)で作成したTV Showsを静的コンテンツとしてエクスポートする。TV Showsのルートディレクトリに下記内容を<code>next.config.js</code>として保存する。これは、エクスポート時に呼ばれる関数で、<code>/</code>と<code>/about</code>、<code>/show/[id]</code>のパス情報を出力する。<code>/show/[id]</code>はTVmaze APIのアクセス結果からパス情報を取得している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#ff79c6">const</span> fetch <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;isomorphic-unfetch&#39;</span>);
+
+module.exports <span style="color:#ff79c6">=</span> {
+    exportTrailingSlash<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,
+    exportPathMap<span style="color:#ff79c6">:</span> async <span style="color:#8be9fd;font-style:italic">function</span>() {
+        <span style="color:#ff79c6">const</span> paths <span style="color:#ff79c6">=</span> {
+            <span style="color:#f1fa8c">&#39;/&#39;</span><span style="color:#ff79c6">:</span> { page<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/&#39;</span> },
+            <span style="color:#f1fa8c">&#39;/about&#39;</span><span style="color:#ff79c6">:</span> {page<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/about&#39;</span>}
+        };
+        <span style="color:#ff79c6">const</span> res <span style="color:#ff79c6">=</span> await fetch(<span style="color:#f1fa8c">&#39;https://api.tvmaze.com/search/shows?q=batman&#39;</span>);
+        <span style="color:#ff79c6">const</span> data <span style="color:#ff79c6">=</span> await res.json();
+        <span style="color:#ff79c6">const</span> shows <span style="color:#ff79c6">=</span> data.map(entry =&gt; entry.show);
+
+        shows.forEach(show =&gt; {
+            paths[<span style="color:#f1fa8c">`/show/</span><span style="color:#f1fa8c">${</span>show.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>] <span style="color:#ff79c6">=</span> {page<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/show/[id]&#39;</span>, query<span style="color:#ff79c6">:</span> {id<span style="color:#ff79c6">:</span> show.id } };
+        });
+
+        <span style="color:#ff79c6">return</span> paths;
+    }
+};
+</code></pre></div><p>ルートディレクトリで<code>npm run export</code>を実行すると、TV Showsの各ページが静的コンテンツとして<code>/out</code>に出力される。<code>npm install -g serve</code>でHTTPサーバをインストールし、<code>serve</code>で配信するとBatman TV Showsへアクセスできる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">$ npm run <span style="color:#ff79c6">export</span>
+
+<span style="color:#ff79c6">&gt;</span> hello<span style="color:#ff79c6">-</span>next@<span style="color:#bd93f9">1.0.0</span> <span style="color:#ff79c6">export</span> <span style="color:#ff79c6">/</span>Users<span style="color:#ff79c6">/</span>mshr<span style="color:#ff79c6">/</span>next<span style="color:#ff79c6">-</span>learn<span style="color:#ff79c6">-</span>demo<span style="color:#ff79c6">/</span>E1<span style="color:#ff79c6">-</span><span style="color:#ff79c6">static</span><span style="color:#ff79c6">-</span><span style="color:#ff79c6">export</span>
+<span style="color:#ff79c6">&gt;</span> next <span style="color:#ff79c6">export</span>
+
+<span style="color:#ff79c6">&gt;</span> using build directory<span style="color:#ff79c6">:</span> /Users/mshr/next-learn-demo/E1-static-export/.next
+  copying <span style="color:#f1fa8c">&#34;static build&#34;</span> directory
+  launching <span style="color:#bd93f9">3</span> workers
+[   <span style="color:#ff79c6">=</span>] Exporting (<span style="color:#bd93f9">1</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> The Batman
+Show data fetched. Count<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">10</span>
+[    ] Exporting (<span style="color:#bd93f9">1</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> Batman
+[ <span style="color:#ff79c6">===</span>] Exporting (<span style="color:#bd93f9">4</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> Batman<span style="color:#ff79c6">:</span> The Animated Series
+Fetched show<span style="color:#ff79c6">:</span> The New Batman Adventures
+Fetched show<span style="color:#ff79c6">:</span> Batman Beyond
+[<span style="color:#ff79c6">=</span>   ] Exporting (<span style="color:#bd93f9">7</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> Beware the Batman
+Fetched show<span style="color:#ff79c6">:</span> Batman<span style="color:#ff79c6">:</span> Black and White
+[  <span style="color:#ff79c6">==</span>] Exporting (<span style="color:#bd93f9">9</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> Batman Unlimited
+[<span style="color:#ff79c6">==</span>  ] Exporting (<span style="color:#bd93f9">12</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> The Adventures <span style="color:#ff79c6">of</span> Batman
+[<span style="color:#ff79c6">====</span>] Exporting (<span style="color:#bd93f9">13</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)Fetched show<span style="color:#ff79c6">:</span> Batman<span style="color:#ff79c6">:</span> The Brave and the Bold
+Exporting (<span style="color:#bd93f9">14</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">14</span>)
+
+Export successful
+mshrs<span style="color:#ff79c6">-</span>MacBook<span style="color:#ff79c6">-</span>Pro<span style="color:#ff79c6">:</span>out mshr$ ls
+<span style="color:#bd93f9">404</span>             _next           index.html
+<span style="color:#bd93f9">404.</span>html        about           show
+mshrs<span style="color:#ff79c6">-</span>MacBook<span style="color:#ff79c6">-</span>Pro<span style="color:#ff79c6">:</span>out mshr$ serve <span style="color:#ff79c6">-</span>p <span style="color:#bd93f9">8080</span>
+
+   ┌────────────────────────────────────────────────────┐
+   │                                                    │
+   │   Serving<span style="color:#ff79c6">!</span>                                         │
+   │                                                    │
+   │   <span style="color:#ff79c6">-</span> Local<span style="color:#ff79c6">:</span>            http<span style="color:#ff79c6">:</span><span style="color:#6272a4">//localhost:8080        │
+</span><span style="color:#6272a4"></span>   │   <span style="color:#ff79c6">-</span> On Your Network<span style="color:#ff79c6">:</span>  http<span style="color:#ff79c6">:</span><span style="color:#6272a4">//192.168.0.1:8080      │
+</span><span style="color:#6272a4"></span>   │                                                    │
+   │   Copied local address to clipboard<span style="color:#ff79c6">!</span>               │
+   │                                                    │
+   └────────────────────────────────────────────────────┘
+</code></pre></div><h1 id="typescript">TypeScript</h1>
+<p>Next.jsはTypeScriptに対応している。このレッスンでは、新しくプロジェクトを作り、その中で作業を進める。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir next-ts
+<span style="color:#8be9fd;font-style:italic">cd</span> next-ts
+npm init -y
+npm install --save react react-dom next
+npm install --save-dev typescript @types/react @types/node
+</code></pre></div><p><code>package.json</code>を開き、<code>script</code>を以下に書き換える。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f1fa8c">&#34;scripts&#34;</span>: <span style="color:#ff79c6">{</span>
+  <span style="color:#f1fa8c">&#34;dev&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
+  <span style="color:#f1fa8c">&#34;build&#34;</span>: <span style="color:#f1fa8c">&#34;next build&#34;</span>,
+  <span style="color:#f1fa8c">&#34;start&#34;</span>: <span style="color:#f1fa8c">&#34;next start&#34;</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p><code>pages/index.tsx</code>を作り、以下を記述する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">const <span style="color:#8be9fd;font-style:italic">Home</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span>&gt; &lt;h1&gt;Hello world!&lt;/h1&gt;;
+
+<span style="color:#8be9fd;font-style:italic">export</span> default Home;
+</code></pre></div><p><code>npm run dev</code>を実行すると、開発サーバが起動するとともに<code>tsconfig.json</code>が自動生成された旨のメッセージが端末に表示される。</p>
+<p>次に、<code>pages/index.tsx</code>を下記に書き換え、</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">const <span style="color:#8be9fd;font-style:italic">Home</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">({</span> userAgent <span style="color:#ff79c6">})</span> <span style="color:#ff79c6">=</span>&gt; &lt;h1&gt;Hello world! - user agent: <span style="color:#ff79c6">{</span>userAgent<span style="color:#ff79c6">}</span>&lt;/h1&gt;;
+
+Home.getInitialProps <span style="color:#ff79c6">=</span> async <span style="color:#ff79c6">({</span> req <span style="color:#ff79c6">})</span> <span style="color:#ff79c6">=</span>&gt; <span style="color:#ff79c6">{</span>
+  const <span style="color:#8be9fd;font-style:italic">userAgent</span> <span style="color:#ff79c6">=</span> req ? req.headers<span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;user-agent&#39;</span><span style="color:#ff79c6">]</span> : navigator.userAgent;
+  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">{</span> userAgent <span style="color:#ff79c6">}</span>;
+<span style="color:#ff79c6">}</span>;
+
+<span style="color:#8be9fd;font-style:italic">export</span> default Home;
+</code></pre></div><p><code>tsconfig.json</code>内の<code>strict</code>を<code>&quot;strict&quot;: true</code>へ書き換え、<a href="http://localhost:3000/">http://localhost:3000</a>へアクセスすると、型エラーが表示される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx">ERROR <span style="color:#ff79c6">in</span> /Users/mshr/next-ts/pages/index.tsx(1,17):
+1:<span style="color:#8be9fd">17</span> Binding element <span style="color:#f1fa8c">&#39;userAgent&#39;</span> implicitly has an <span style="color:#f1fa8c">&#39;any&#39;</span> type.
+  <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">const</span> Home <span style="color:#ff79c6">=</span> ({ userAgent }) <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">&lt;</span>h1<span style="color:#ff79c6">&gt;</span>Hello world<span style="color:#ff79c6">!</span> <span style="color:#ff79c6">-</span> user agent<span style="color:#ff79c6">:</span> {userAgent}<span style="color:#ff79c6">&lt;</span>/h1&gt;;
+      <span style="color:#ff79c6">|</span>                 <span style="color:#ff79c6">^</span>
+    <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">|</span> 
+    <span style="color:#bd93f9">3</span> <span style="color:#ff79c6">|</span> Home.getInitialProps <span style="color:#ff79c6">=</span> async ({ req }) <span style="color:#ff79c6">=&gt;</span> {
+    <span style="color:#bd93f9">4</span> <span style="color:#ff79c6">|</span>   <span style="color:#ff79c6">const</span> userAgent <span style="color:#ff79c6">=</span> req <span style="color:#ff79c6">?</span> req.headers[<span style="color:#f1fa8c">&#39;user-agent&#39;</span>] <span style="color:#ff79c6">:</span> navigator.userAgent;
+</code></pre></div><p><code>index.tsx</code>を下記に書き換え、型情報を付与することで、エラーが解消される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">import</span> { NextPage } from <span style="color:#f1fa8c">&#39;next&#39;</span>;
+
+<span style="color:#ff79c6">const</span> Home: <span style="color:#8be9fd">NextPage</span><span style="color:#ff79c6">&lt;</span>{ userAgent: <span style="color:#8be9fd">string</span> }<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">=</span> ({ userAgent }) <span style="color:#ff79c6">=&gt;</span> (
+  <span style="color:#ff79c6">&lt;</span>h1<span style="color:#ff79c6">&gt;</span>Hello world<span style="color:#ff79c6">!</span> <span style="color:#ff79c6">-</span> user agent<span style="color:#ff79c6">:</span> {userAgent}<span style="color:#ff79c6">&lt;</span>/h1&gt;
+);
+
+Home.getInitialProps <span style="color:#ff79c6">=</span> async ({ req }) <span style="color:#ff79c6">=&gt;</span> {
+  <span style="color:#ff79c6">const</span> userAgent <span style="color:#ff79c6">=</span> req <span style="color:#ff79c6">?</span> req.headers[<span style="color:#f1fa8c">&#39;user-agent&#39;</span>] <span style="color:#ff79c6">||</span> <span style="color:#f1fa8c">&#39;&#39;</span> <span style="color:#ff79c6">:</span> navigator.userAgent;
+  <span style="color:#ff79c6">return</span> { userAgent };
+};
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> Home;
+</code></pre></div><h1 id="create-amp-pages">Create AMP Pages</h1>
+<p>アプリケーションをAMP対応させる。<code>config</code>オブジェクトの<code>amp: true</code>をエクスポートすることで、常にAMP対応ページになる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#6272a4">// pages/index.js
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> config <span style="color:#ff79c6">=</span> { amp<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span> };
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> <span style="color:#8be9fd;font-style:italic">function</span> Index(props) {
+  <span style="color:#ff79c6">return</span> &lt;<span style="color:#ff79c6">p</span>&gt;Welcome to the AMP only Index page<span style="color:#ff79c6">!!</span>&lt;/<span style="color:#ff79c6">p</span>&gt;;
+}
+</code></pre></div><p><code>amp: 'hybrid'</code>とすることで、URLへ<code>?amp=1</code>を付けるとAMPページが、付けないと通常のページがレンダリングされる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#6272a4">// pages/index.js
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> { useAmp } from <span style="color:#f1fa8c">&#39;next/amp&#39;</span>;
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> config <span style="color:#ff79c6">=</span> { amp<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;hybrid&#39;</span> };
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> <span style="color:#8be9fd;font-style:italic">function</span> Index(props) {
+  <span style="color:#ff79c6">const</span> isAmp <span style="color:#ff79c6">=</span> useAmp();
+  <span style="color:#ff79c6">return</span> &lt;<span style="color:#ff79c6">p</span>&gt;Welcome to the {isAmp <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#39;AMP&#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;normal&#39;</span>} version <span style="color:#ff79c6">of</span> the Index page<span style="color:#ff79c6">!!</span>&lt;/<span style="color:#ff79c6">p</span>&gt;;
+}
+</code></pre></div><h1 id="automatic-static-optimization">Automatic Static Optimization</h1>
+<p>Next.js 9以降のバージョンでは、動的な実装を含むページはServerとして、静的な実装のみならStaticとしてビルドしてくれる。</p>
+<p>以下の実装を<code>index.js</code>として保存する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#ff79c6">const</span> Index <span style="color:#ff79c6">=</span> () =&gt; &lt;<span style="color:#ff79c6">h1</span>&gt;Hello World&lt;/<span style="color:#ff79c6">h1</span>&gt;;
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> Index;
+</code></pre></div><p><code>npm run build</code>でビルドすると、Staticとしてビルドされたことが確認できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">mshrs<span style="color:#ff79c6">-</span>MacBook<span style="color:#ff79c6">-</span>Pro<span style="color:#ff79c6">:</span>hello<span style="color:#ff79c6">-</span>next mshr$ npm run build
+
+<span style="color:#ff79c6">&gt;</span> hello<span style="color:#ff79c6">-</span>next@<span style="color:#bd93f9">1.0.0</span> build <span style="color:#ff79c6">/</span>Users<span style="color:#ff79c6">/</span>mshr<span style="color:#ff79c6">/</span>hello<span style="color:#ff79c6">-</span>next
+<span style="color:#ff79c6">&gt;</span> next build
+
+Creating an optimized production build
+
+Compiled successfully.
+
+Automatically optimizing pages
+
+Page                                                           Size     First Load JS
+┌ ○ <span style="color:#ff79c6">/</span>                                                          <span style="color:#bd93f9">266</span> B          <span style="color:#bd93f9">58.2</span> kB
+└ ○ <span style="color:#ff79c6">/</span><span style="color:#bd93f9">404</span>                                                       <span style="color:#bd93f9">3.15</span> kB        <span style="color:#bd93f9">61.1</span> kB
+<span style="color:#ff79c6">+</span> First Load JS shared by all                                  <span style="color:#bd93f9">57.9</span> kB
+  ├ <span style="color:#ff79c6">static</span><span style="color:#ff79c6">/</span>pages<span style="color:#ff79c6">/</span>_app.js                                       <span style="color:#bd93f9">957</span> B
+  ├ chunks<span style="color:#ff79c6">/</span>bd49b44e65de90cbf4f977910e0c706119f124ab<span style="color:#bd93f9">.92878</span>c.js  <span style="color:#bd93f9">10.3</span> kB
+  ├ chunks<span style="color:#ff79c6">/</span>framework<span style="color:#bd93f9">.0</span>f140d.js                                 <span style="color:#bd93f9">40</span> kB
+  ├ runtime<span style="color:#ff79c6">/</span>main<span style="color:#bd93f9">.43</span>a0bb.js                                     <span style="color:#bd93f9">5.95</span> kB
+  └ runtime<span style="color:#ff79c6">/</span>webpack.b65cab.js                                  <span style="color:#bd93f9">746</span> B
+
+λ  (Server)  server<span style="color:#ff79c6">-</span>side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as <span style="color:#ff79c6">static</span> HTML (uses no initial props)
+●  (SSG)     automatically generated as <span style="color:#ff79c6">static</span> HTML <span style="color:#ff79c6">+</span> JSON (uses getStaticProps)
+</code></pre></div><p>次に、<code>agent.js</code>として以下を保存し、</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#ff79c6">const</span> Agent <span style="color:#ff79c6">=</span> ({ userAgent }) =&gt; &lt;<span style="color:#ff79c6">h1</span>&gt;Your user agent is<span style="color:#ff79c6">:</span> {userAgent}&lt;/<span style="color:#ff79c6">h1</span>&gt;;
+
+Agent.getInitialProps <span style="color:#ff79c6">=</span> async ({ req }) =&gt; {
+  <span style="color:#ff79c6">const</span> userAgent <span style="color:#ff79c6">=</span> req <span style="color:#ff79c6">?</span> req.headers[<span style="color:#f1fa8c">&#39;user-agent&#39;</span>] <span style="color:#ff79c6">:</span> navigator.userAgent;
+  <span style="color:#ff79c6">return</span> { userAgent };
+};
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> Agent;
+</code></pre></div><p>同様に<code>npm run build</code>でビルドすると、今度はServerとしてビルドされる。<code>getInitialProps</code>を含むため、動的ページとして認識されている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">mshrs<span style="color:#ff79c6">-</span>MacBook<span style="color:#ff79c6">-</span>Pro<span style="color:#ff79c6">:</span>.next mshr$ npm run build
+
+<span style="color:#ff79c6">&gt;</span> hello<span style="color:#ff79c6">-</span>next@<span style="color:#bd93f9">1.0.0</span> build <span style="color:#ff79c6">/</span>Users<span style="color:#ff79c6">/</span>mshr<span style="color:#ff79c6">/</span>hello<span style="color:#ff79c6">-</span>next
+<span style="color:#ff79c6">&gt;</span> next build
+
+Creating an optimized production build
+
+Compiled successfully.
+
+Automatically optimizing pages
+
+Page                                                           Size     First Load JS
+┌ ○ <span style="color:#ff79c6">/</span>                                                          <span style="color:#bd93f9">266</span> B          <span style="color:#bd93f9">58.6</span> kB
+├ ○ <span style="color:#ff79c6">/</span><span style="color:#bd93f9">404</span>                                                       <span style="color:#bd93f9">3.15</span> kB        <span style="color:#bd93f9">61.4</span> kB
+└ λ <span style="color:#ff79c6">/</span>agent                                                     <span style="color:#bd93f9">400</span> B          <span style="color:#bd93f9">58.7</span> kB
+<span style="color:#ff79c6">+</span> First Load JS shared by all                                  <span style="color:#bd93f9">58.3</span> kB
+  ├ <span style="color:#ff79c6">static</span><span style="color:#ff79c6">/</span>pages<span style="color:#ff79c6">/</span>_app.js                                       <span style="color:#bd93f9">959</span> B
+  ├ chunks<span style="color:#ff79c6">/</span>f7db141d5c375743d3f7fa783807f86c90c92554.a3bfbe.js  <span style="color:#bd93f9">2.4</span> kB
+  ├ chunks<span style="color:#ff79c6">/</span>fbdfa5f92fe41f664c609f7a50034ba170386183<span style="color:#bd93f9">.79e44</span>c.js  <span style="color:#bd93f9">8.28</span> kB
+  ├ chunks<span style="color:#ff79c6">/</span>framework<span style="color:#bd93f9">.0</span>f140d.js                                 <span style="color:#bd93f9">40</span> kB
+  ├ runtime<span style="color:#ff79c6">/</span>main<span style="color:#bd93f9">.9</span>a37d4.js                                     <span style="color:#bd93f9">5.95</span> kB
+  └ runtime<span style="color:#ff79c6">/</span>webpack.b65cab.js                                  <span style="color:#bd93f9">746</span> B
+
+λ  (Server)  server<span style="color:#ff79c6">-</span>side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as <span style="color:#ff79c6">static</span> HTML (uses no initial props)
+●  (SSG)     automatically generated as <span style="color:#ff79c6">static</span> HTML <span style="color:#ff79c6">+</span> JSON (uses getStaticProps)
+</code></pre></div><h1 id="まとめ">まとめ</h1>
+<p>Next.js Learn (Excel)では、静的コンテンツとしてエクスポートする方法、TypeScript、アプリケーションをAMP対応する方法、Automatic Static Optimizationによるページの自動静的/動的ビルドを学んだ。今回学んだことをベースに、このブログをカスタマイズしていきたい。</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/interface-2020-5-research-on-modern-language/" data-toggle="tooltip" data-placement="top" title="[読書メモ]Interface 2020年5月号 C/C&#43;&#43;後継モダン言語の研究">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/macos-ftdi-ft232-usb-serial-device/" data-toggle="tooltip" data-placement="top" title="FTDI社製FT232シリーズのUSBシリアル変換アダプタをmacOSで使う">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kozos" title="kozos">
+                            kozos
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/microcontroller" title="microcontroller">
+                            microcontroller
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/raspberry-pi" title="raspberry-pi">
+                            raspberry-pi
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/rust" title="rust">
+                            rust
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href='' rel="alternate"
+                            type="application/rss+xml" title="Keep Coding, Keep Climbing">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/mshrh3">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=NSCMi88AAAAJ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/masahiro.hiramori">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/mshr-h">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/masahiro-hiramori-63b992167/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Keep Coding, Keep Climbing 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a
+                        href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if ($('#tag_cloud').length !== 0) {
+        async("/js/jquery.tagcloud.js", function () {
+            $.fn.tagcloud.defaults = {
+                
+                color: { start: '#bbbbee', end: '#0085a1' },
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-165309045-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

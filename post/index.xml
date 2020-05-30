@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Keep Coding, Keep Climbing</title>
+    <link>https://keepcodingkeepclimbing.com/post/</link>
+    <description>Recent content in Posts on Keep Coding, Keep Climbing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://keepcodingkeepclimbing.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TFRT(TensorFlow Runtime)をUbuntu 18.04 on WSLでビルドした</title>
+      <link>https://keepcodingkeepclimbing.com/post/building-tensorflow-runtime/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/building-tensorflow-runtime/</guid>
+      <description>TFRT(TensorFlow Runtime)は、TensorFlowの新しい実行ランタイムでパフォーマンスが良いらしい。 Linux(WSL)上でビルドしたので、メモ。</description>
+    </item>
+    
+    <item>
+      <title>yaml_cvによる履歴書PDFのビルドをGitHub Actionsでやる</title>
+      <link>https://keepcodingkeepclimbing.com/post/resume-pdf-github-actions/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/resume-pdf-github-actions/</guid>
+      <description>履歴書PDFのビルド作業をGitHub Actionsで定義した。 リポジトリ自体はyaml_cvをクローンし、プライベートリポジトリとして作成</description>
+    </item>
+    
+    <item>
+      <title>DNSレコードの種類</title>
+      <link>https://keepcodingkeepclimbing.com/post/dns-record/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/dns-record/</guid>
+      <description>DNSレコードとは、DNSを動作させるための設定情報のこと。DNSサーバは、ドメイン名とIPアドレスの対応表である「ゾーンファイル」を保持し</description>
+    </item>
+    
+    <item>
+      <title>Hugo&#43;Github Pagesで新しい個人ウェブサイトを作った</title>
+      <link>https://keepcodingkeepclimbing.com/post/new-website-with-hugo/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/new-website-with-hugo/</guid>
+      <description>HugoとGithub Pagesで個人ブログを作ったので作業メモ。 macOS Catalina 10.15.4で作業した。 手順 GitHub repositoryを作成 Hugoでサ</description>
+    </item>
+    
+    <item>
+      <title>macOS Tips</title>
+      <link>https://keepcodingkeepclimbing.com/post/macos-tips/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/macos-tips/</guid>
+      <description>随時追記する。 スクリーンショット取得 ディスプレイ全体のスクリーンショットをファイルに保存 command + shift + 3 ディスプレイ全体のスクリーンショットをクリ</description>
+    </item>
+    
+    <item>
+      <title>macOSでRISC-V版FedoraをQEMUで起動する</title>
+      <link>https://keepcodingkeepclimbing.com/post/boot-fedora-on-risc-v-qemu/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/boot-fedora-on-risc-v-qemu/</guid>
+      <description>macOS上のQEMUでRISC-V版Fedoraを動かしてみた。ビルド済みバイナリは下記から取得できるものを使用。 https://fedorapeople.org/groups/risc-v/disk-images/ 実施環境 macOS Catalina 10.15.4 brew</description>
+    </item>
+    
+    <item>
+      <title>Rustで書かれた低レイヤOSS</title>
+      <link>https://keepcodingkeepclimbing.com/post/rust-system-programming-oss/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/rust-system-programming-oss/</guid>
+      <description>Rustで書かれたOS、VMM、Bootloaderについて調べた。 OS Tock ARM Cortex-M、、STM32、RISC-Vで動く組み込みOS 論文</description>
+    </item>
+    
+    <item>
+      <title>RaspbianにTensorFlow Lite 2.1とOpenCV 4を導入する</title>
+      <link>https://keepcodingkeepclimbing.com/post/install-tflite-opencv-using-pyenv-on-raspbian/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/install-tflite-opencv-using-pyenv-on-raspbian/</guid>
+      <description>前回の記事で導入したRaspbian Busterに、TensorFlow LiteとOpenCVの環境を構築したのでメモ。 Python 3.7.7導入 $ sudo</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 3にRaspbian Busterを導入する</title>
+      <link>https://keepcodingkeepclimbing.com/post/install-raspbian-on-raspberrypi-3/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/install-raspbian-on-raspberrypi-3/</guid>
+      <description>Raspberry Pi 3 Model BにRaspbian Busterを導入したので作業メモ。 実施環境 MacBook Pro 13インチ 2017年モデル macOS Catalina 10.15.4 Raspberry Pi 3 Model B Raspbian Buster with desktop Raspbia</description>
+    </item>
+    
+    <item>
+      <title>UNIXコマンド Tips</title>
+      <link>https://keepcodingkeepclimbing.com/post/unix-commands-tips/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/unix-commands-tips/</guid>
+      <description>たまに使うUNIXコマンドとその使い方をメモ。 zip -0 store only(圧縮しない) -j junk (don&amp;rsquo;t record) directory names(ディレクトリ名を保存しない) zipinfo ZIPファイル</description>
+    </item>
+    
+    <item>
+      <title>H8/3069Fの開発ツールをmacOSに導入</title>
+      <link>https://keepcodingkeepclimbing.com/post/h8300-development-tools-for-macos/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/h8300-development-tools-for-macos/</guid>
+      <description>H8/3069Fの開発ツールを導入する。次のソースコードをダウンロードし、$HOME/h8devtoolsに保存する。 GMP MPFR binutils MPC GCC h8write あとはひた</description>
+    </item>
+    
+    <item>
+      <title>Rustの所有権、借用、ライフタイムについて雑に理解した</title>
+      <link>https://keepcodingkeepclimbing.com/post/what-is-ownership-borrow-lifetime-in-rust-language/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/what-is-ownership-borrow-lifetime-in-rust-language/</guid>
+      <description>最近、Rustプログラミング言語に入門した。Rustの公式ページには、Rustの特徴として信頼性について記載されている。本記事では、Rust</description>
+    </item>
+    
+    <item>
+      <title>FTDI社製FT232シリーズのUSBシリアル変換アダプタをmacOSで使う</title>
+      <link>https://keepcodingkeepclimbing.com/post/macos-ftdi-ft232-usb-serial-device/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/macos-ftdi-ft232-usb-serial-device/</guid>
+      <description>12ステップで作る 組込みOS自作入門を再開するにあたり、MacBook Pro 13インチを購入したのでmacOS上で開発しようと思う。 使用するUS</description>
+    </item>
+    
+    <item>
+      <title>Next.js Learn (Excel)で静的コンテンツ生成などを学んだ</title>
+      <link>https://keepcodingkeepclimbing.com/post/nextjs-learn-excel/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/nextjs-learn-excel/</guid>
+      <description>以前、Next.js Learn (Basics)でNext.jsの基礎を学んだでNext.jsのチュートリアルを実施した。今回は続きのNext.js Learn</description>
+    </item>
+    
+    <item>
+      <title>[読書メモ]Interface 2020年5月号 C/C&#43;&#43;後継モダン言語の研究</title>
+      <link>https://keepcodingkeepclimbing.com/post/interface-2020-5-research-on-modern-language/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/interface-2020-5-research-on-modern-language/</guid>
+      <description>Interface 2020年5月号の読書メモ。 第1部と第2部のみ記載、第3部はRustとGoの説明。 第1部 進化を続けるプログラミング言語の世界 プログラミング</description>
+    </item>
+    
+    <item>
+      <title>Next.js Learn (Basics)でNext.jsの基礎を学んだ</title>
+      <link>https://keepcodingkeepclimbing.com/post/nextjs-learn-basics/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/nextjs-learn-basics/</guid>
+      <description>Next.jsの公式チュートリアルNext.js Learn (Basics)でNext.jsの基礎を学んだ。 背景 本ブログは、Next.js+Notio</description>
+    </item>
+    
+    <item>
+      <title>プロキシ環境下でNow CLIを使う</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-use-now-cli-behind-proxy/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-use-now-cli-behind-proxy/</guid>
+      <description>ZEITは、静的サイト/サーバレス向けPaaSのNowを開発・提供している。NowのインタフェースとしてCLIツールが公式に開発されている。</description>
+    </item>
+    
+    <item>
+      <title>Ubuntuで最新版Node.jsをインストールする</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-install-latest-nodejs-on-ubuntu/</link>
+      <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-install-latest-nodejs-on-ubuntu/</guid>
+      <description>aptなどのパッケージマネージャでnode.jsをインストールすると、古いバージョンが導入されることがある。n packageを使うことで、簡</description>
+    </item>
+    
+    <item>
+      <title>How to build onnx/onnx for your ARMv7l devices</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-build-onnx-for-your-armv7l-devices/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-build-onnx-for-your-armv7l-devices/</guid>
+      <description>microsoft/onnxruntime provides build instruction for ARMv7l python wheel which requires onnx/onnx. But it doesn&amp;rsquo;t provide binary package nor build instruction for ARMv7l. So I&amp;rsquo;ve written a dockerfile to build onnx/onnx python wheel.
+Build instruction 1. Create a build directory mkdir build-onnx cd build-onnx 2. Save the dockerfile on into the build directory  Dockerfile.arm32v7  FROM balenalib/raspberrypi3-python:latest-stretch-build ARG REPO_URL=https://github.com/onnx/onnx ARG BRANCH=master #Enforces cross-compilation through Qemu RUN [ &amp;quot;cross-build-start&amp;quot; ] RUN install_packages \\ sudo \\ build-essential \\ cmake \\ git \\ python3 \\ python3-pip \\ python3-dev \\ libprotoc-dev \\ protobuf-compiler RUN pip3 install --upgrade pip setuptools wheel RUN pip3 install numpy # Prepare onnx Repo WORKDIR /code RUN git clone --single-branch --branch ${BRANCH} --recursive ${REPO_URL} onnx # Start the basic build WORKDIR /code/onnx RUN python3 setup.</description>
+    </item>
+    
+    <item>
+      <title>C/C&#43;&#43;デバッグプリントプラクティス</title>
+      <link>https://keepcodingkeepclimbing.com/post/c-cpp-debug-print-practice/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/c-cpp-debug-print-practice/</guid>
+      <description>TD;LR #include &amp;lt;stdio.h&amp;gt; printf(&amp;#34;\\t%s:%dL %s() : some_variable=%d\\n&amp;#34;, __FILE__, __LINE__, __func__, some_variable); はじめに そこそこ大規模なOSS(TensorFlowというディープラーニングフレームワーク)の動作解析に役立ったコード</description>
+    </item>
+    
+    <item>
+      <title>プロキシ環境下でWindows 10のライセンス認証する</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-activate-windows10-behind-proxy/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-activate-windows10-behind-proxy/</guid>
+      <description>TD;LR &amp;gt; netsh winhttp set proxy 1.2.3.4:5678 &amp;gt; slmgr.vbs -ipk AAAAA-BBBBB-CCCCC-DDDDD-EEEEE 手順 PowerShellを管理者権限で起動する。 netsh winhttp show proxyで現在のプロキシ設定を確認する。 PS C:\\Windows\\system32&amp;gt; netsh winhttp show proxy 現在の WinHTTP プ</description>
+    </item>
+    
+    <item>
+      <title>2019年にお金を払ったサービス</title>
+      <link>https://keepcodingkeepclimbing.com/post/list-of-subscription-in-2019/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/list-of-subscription-in-2019/</guid>
+      <description>振り返ってみた。 新規 Notion 年額48ドル。Todo、個人ORK、ウェブクリッパーなどを管理するために契約。 Google One 2TB 月額1100円。PCのバックアップ</description>
+    </item>
+    
+    <item>
+      <title>14 Climbing Videos to Help You Stay Motivated</title>
+      <link>https://keepcodingkeepclimbing.com/post/14-climbing-videos-to-help-you-stay-motivated/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/14-climbing-videos-to-help-you-stay-motivated/</guid>
+      <description>                             </description>
+    </item>
+    
+    <item>
+      <title>最近良く聴くPodcast</title>
+      <link>https://keepcodingkeepclimbing.com/post/list-of-my-favorite-podcasts/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/list-of-my-favorite-podcasts/</guid>
+      <description>自分が最近良く聴くPodcastをまとめた。 一覧 Rebuild.fm Podcastを聞く習慣はこれと下で紹介するバイリンガルニュースで始まった。毎回ゲストを呼</description>
+    </item>
+    
+    <item>
+      <title>2019/12時点の英語勉強方法とか</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-i-study-english-as-of-2019-12/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-i-study-english-as-of-2019-12/</guid>
+      <description>現状の英語力 4年前にTOEIC 850点ぐらい取った 技術系の資料は割と読める 心理的障壁は英語と日本語であまり違いはない(技術系の資料に限る) 読</description>
+    </item>
+    
+    <item>
+      <title>Things to bring for climbing gym(as of 2019/12)</title>
+      <link>https://keepcodingkeepclimbing.com/post/things-to-bring-for-climbing-gym-as-of-2019-12/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/things-to-bring-for-climbing-gym-as-of-2019-12/</guid>
+      <description>シューズ 最近はLa Sportivaのジーニアスを履いてます。BananaFingersで購入。 LA SPORTIVA Genius チョーク&amp;amp;チョークバッグ Organic cli</description>
+    </item>
+    
+    <item>
+      <title>OSSメンテナをしていて気づいた、Issue報告時に気をつけて欲しいこと</title>
+      <link>https://keepcodingkeepclimbing.com/post/things-to-be-careful-when-you-write-issue-on-github/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/things-to-be-careful-when-you-write-issue-on-github/</guid>
+      <description>私がメンテナであるOSS(Verilog HDL/SystemVerilog向けのVS Codeプラグイン)のIssueを見ていて気づいた、Is</description>
+    </item>
+    
+    <item>
+      <title>GNU timeでプロセスのメモリ使用量を取得する</title>
+      <link>https://keepcodingkeepclimbing.com/post/measuring-process-memory-usage-using-gnu-time/</link>
+      <pubDate>Tue, 23 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/measuring-process-memory-usage-using-gnu-time/</guid>
+      <description>TD;LR /usr/bin/time -f &amp;#34;%M KB&amp;#34; command GNU time GNU timeには、プロセスが使用したユーザ/システム時間だけでなく、最大メモリ使用量(Resident Set Size)を取得するこ</description>
+    </item>
+    
+    <item>
+      <title>Windows 10のVirtualBoxで「Error In supR3HardNtChildPurify」とエラーが表示されて仮想マシンが起動しない問題</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-solve-error-in-supr3hardntchildpurify-on-virtualbox/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-solve-error-in-supr3hardntchildpurify-on-virtualbox/</guid>
+      <description>ある日、Windows上のVirtualBoxでVMを起動しようとしたら以下のエラーメッセージが出て起動しない問題が発生した。 Webで検索し</description>
+    </item>
+    
+    <item>
+      <title>Google/JAX調査(インストール編)</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-install-google-jax/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-install-google-jax/</guid>
+      <description>JAXとは、Python+NumPyプログラムを微分可能かつ、XLAを使ってGPUもしくはTPU上で動作するコードにコンパイルしてくれる、P</description>
+    </item>
+    
+    <item>
+      <title>外岩用ボルダーマット考</title>
+      <link>https://keepcodingkeepclimbing.com/post/choosing-crash-pad/</link>
+      <pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/choosing-crash-pad/</guid>
+      <description>モンベル ボルダーマットを購入する前に他の候補と比較した際のメモを記しておく。 以下の要件で5つの候補を挙げた。 電車で岩場へ行くことを考え、そこ</description>
+    </item>
+    
+    <item>
+      <title>Jupyter Notebook上に現在のノートブックのメモリ使用量を表示する</title>
+      <link>https://keepcodingkeepclimbing.com/post/display-memory-usage-on-jupyter-notebook/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/display-memory-usage-on-jupyter-notebook/</guid>
+      <description>Jupyter Notebook上でPythonコードを実行中に、メモリ使用量を確認したいときがある。次のプラグインをインストールすると、Jupyter N</description>
+    </item>
+    
+    <item>
+      <title>Visual C&#43;&#43;コンパイラとPhoenix Compiler Framework</title>
+      <link>https://keepcodingkeepclimbing.com/post/phoenix-compiler-framework/</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/phoenix-compiler-framework/</guid>
+      <description>Visual C++コンパイラについて調べたのでメモ。 Visual C++コンパイラとは Microsoft Visual C++という、Microsoft製のC/C++統合開発環境に付属のC/C</description>
+    </item>
+    
+    <item>
+      <title>LICENSEファイルを生成するgolicenseを作った</title>
+      <link>https://keepcodingkeepclimbing.com/post/golicense-generate-license-file-from-cli/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/golicense-generate-license-file-from-cli/</guid>
+      <description>mshr-h/golicense golicenseという、コマンドライン上でLICENSEファイルを生成するプログラムをGo言語で作成した。いくつかのライセンスから選んで</description>
+    </item>
+    
+    <item>
+      <title>Linux(WSL)上でTensorFlowをソースコードからビルドする</title>
+      <link>https://keepcodingkeepclimbing.com/post/how-to-build-from-tensorflow-on-wsl/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/how-to-build-from-tensorflow-on-wsl/</guid>
+      <description>ディープラーニングフレームワークのTensorFlowは、Googleが開発しており、ビルド済みのTensorFlowも提供されている。しか</description>
+    </item>
+    
+    <item>
+      <title>バイトオーダー(エンディアン)についてメモ</title>
+      <link>https://keepcodingkeepclimbing.com/post/what-is-byteorder/</link>
+      <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/what-is-byteorder/</guid>
+      <description>TensorFlowのソースコードを読んでいたら、エンディアンチェックのコードが含まれていたので改めて調べた。 該当するTensorFlowの</description>
+    </item>
+    
+    <item>
+      <title>あるPythonパッケージが依存するライブラリ一覧をwhlファイルから探す</title>
+      <link>https://keepcodingkeepclimbing.com/post/2018-12-16-find-python-package-dependency-from-whl-file/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/2018-12-16-find-python-package-dependency-from-whl-file/</guid>
+      <description>TensorFlowをソースコードからビルドすると、PythonパッケージとしてTensorFlowのwhlファイルが作成される。このwhl</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 18.04 LTSでibus-mozcのキーボード配列が日本語にならない問題と解決方法</title>
+      <link>https://keepcodingkeepclimbing.com/post/2018-08-12-how-to-use-japanese-keyboard-layout-on-ubuntu-1804-ibus-mozc/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/post/2018-08-12-how-to-use-japanese-keyboard-layout-on-ubuntu-1804-ibus-mozc/</guid>
+      <description>Ubuntu 18.04にibus-mozcをインストールしたところ、キーボード配列が日本語にならなかった。ibus-mozcの設定を書き換えると解決し</description>
+    </item>
+    
+  </channel>
+</rss>

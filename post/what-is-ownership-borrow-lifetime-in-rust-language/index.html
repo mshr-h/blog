@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Keep Coding, Keep Climbing">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://keepcodingkeepclimbing.com//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="Rustの所有権、借用、ライフタイムについて雑に理解した" />
+    <meta property="og:title" content="Rustの所有権、借用、ライフタイムについて雑に理解した" />
+    <meta property="twitter:title" content="Rustの所有権、借用、ライフタイムについて雑に理解した" />
+    
+
+    
+    <meta name="description" content="programming and rock climbing">
+    <meta property="og:description" content="programming and rock climbing" />
+    <meta property="twitter:description" content="programming and rock climbing" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="programming, software, machine learning, climbing, bouldering, blog">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Rustの所有権、借用、ライフタイムについて雑に理解した-Keep Coding, Keep Climbing</title>
+
+    <link rel="canonical" href="/post/what-is-ownership-borrow-lifetime-in-rust-language/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="https://keepcodingkeepclimbing.com/css/custom-font.css">
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Keep Coding, Keep Climbing</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/climbing">climbing</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/cv/">CV</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/rust" title="Rust">
+                            Rust
+                        </a>
+                        
+                    </div>
+                    <h1>Rustの所有権、借用、ライフタイムについて雑に理解した</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Masahiro Hiramori&#34;
+                         
+                        on 
+                        Wednesday, April 15, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#所有権システム">所有権システム</a></li>
+    <li><a href="#所有権">所有権</a>
+      <ul>
+        <li><a href="#ムーブとコピー">ムーブとコピー</a></li>
+        <li><a href="#関数をまたいだ所有権の移動">関数をまたいだ所有権の移動</a></li>
+      </ul>
+    </li>
+    <li><a href="#借用">借用</a></li>
+    <li><a href="#ライフタイム">ライフタイム</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
+                
+                <p>最近、Rustプログラミング言語に入門した。Rustの公式ページには、Rustの特徴として信頼性について記載されている。本記事では、Rustが保証するメモリ安全性とスレッド安全性を実現する、所有権システムについて雑に理解したので説明する。</p>
+<h1 id="所有権システム">所有権システム</h1>
+<p>Rustは、コンパイル時にメモリ安全性に関するバグをコンパイルエラーとして開発者に教えてくれる。所有権システムは、メモリ安全性に関するバグをRustコンパイラが発見するための仕組み。所有権システムは、次の3つの概念で構成されている。</p>
+<ul>
+<li>所有権</li>
+<li>借用</li>
+<li>ライフタイム</li>
+</ul>
+<h1 id="所有権">所有権</h1>
+<p>変数束縛において、Rustでは所有権という特性を持つ。変数は、束縛している値の「所有権」を持つ。Rustの値は、所有権を持つ変数がスコープから外れると、その値のリソースは開放される。</p>
+<p>例えば以下の例では、内側の<code>{}</code>に入ると、新しい値<code>Vec&lt;T&gt;</code>が作成され、変数<code>bar</code>が値を束縛する。変数<code>bar</code>のスコープは内側の<code>{}</code>の間のため、<code>{}</code>の前でも後でも使えない。内側の<code>{}</code>を抜けると、変数<code>bar</code>のスコープが終了し、値<code>Vec&lt;T&gt;</code>のリソースが開放(デストラクタ<code>drop()</code>が呼ばれる)される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">foo</span>() {
+    <span style="color:#6272a4">// barは使えない
+</span><span style="color:#6272a4"></span>    {
+        <span style="color:#8be9fd;font-style:italic">let</span> bar <span style="color:#ff79c6">=</span> vec<span style="color:#ff79c6">!</span>[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>];
+        println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;bar.0 = {}&#34;</span>, bar.<span style="color:#bd93f9">0</span>);
+    }
+    <span style="color:#6272a4">// Vec&lt;T&gt;のリソースが開放される
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// barは使えない
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><h2 id="ムーブとコピー">ムーブとコピー</h2>
+<p>次のコードを実行すると期待通りの実行結果が得られる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+    <span style="color:#8be9fd;font-style:italic">let</span> y <span style="color:#ff79c6">=</span> x;
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;x = {}, y = {}&#34;</span>, x, y);
+    <span style="color:#6272a4">// =&gt; x = 1, y = 1
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>一方、次のコードではコンパイルエラーが発生する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> x <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;hello&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">let</span> y <span style="color:#ff79c6">=</span> x;
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;x = {}, y = {}&#34;</span>, x, y);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">error[E0382]: <span style="color:#50fa7b">borrow</span> of moved value: `x`
+ <span style="color:#ff79c6">-</span>-&gt; <span style="color:#50fa7b">src</span><span style="color:#ff79c6">/</span>main.rs:<span style="color:#bd93f9">4</span>:<span style="color:#bd93f9">32</span>
+  <span style="color:#ff79c6">|</span>
+<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">|</span>     <span style="color:#8be9fd;font-style:italic">let</span> x <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;hello&#34;</span>);
+  <span style="color:#ff79c6">|</span>         <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">move</span> occurs because `x` has <span style="color:#ff79c6">type</span> `std::string::<span style="color:#8be9fd;font-style:italic">String</span>`, which does not implement the `<span style="color:#8be9fd;font-style:italic">Copy</span>` <span style="color:#ff79c6">trait</span>
+<span style="color:#bd93f9">3</span> <span style="color:#ff79c6">|</span>     <span style="color:#8be9fd;font-style:italic">let</span> y <span style="color:#ff79c6">=</span> x;
+  <span style="color:#ff79c6">|</span>             <span style="color:#ff79c6">-</span> value moved here
+<span style="color:#bd93f9">4</span> <span style="color:#ff79c6">|</span>     println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;x = {}, y = {}&#34;</span>, x, y);
+  <span style="color:#ff79c6">|</span>                                <span style="color:#ff79c6">^</span> value borrowed here after <span style="color:#ff79c6">move</span>
+</code></pre></div><p>Rustでは、関数の引数や代入文は値そのものを渡すのではなく、所有権をムーブするのがデフォルト。<code>let y = x</code>で<code>std::string::String</code>の所有権は<code>y</code>にムーブされたにも関わらず、<code>println!(&quot;x = {}, y = {}&quot;, x, y)</code>で<code>x</code>を使おうとしたため、エラーが発生した。</p>
+<p>Rustのプリミティブ型のうち、スカラ型にはCopyトレイトが実装されている。Copyトレイトが実装されている変数の場合、値をコピーして、新しくその値の所有権を持つ変数を作成する。最初の例では、<code>x</code>はCopyトレイトが実装されているため、<code>let y = x</code>は所有権のムーブではなく、コピーされ、後続の処理においても<code>x</code>を使うことができる。</p>
+<h2 id="関数をまたいだ所有権の移動">関数をまたいだ所有権の移動</h2>
+<p>関数呼び出しにおける引数においても、所有権はムーブする。次の例では、<code>print_string(str)</code>で<code>str</code>を引数として指定しているため、所有権もムーブする。そのため、<code>print_string(str)</code>以降の処理では<code>str</code>を使用することができない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">print_string</span>(x: <span style="color:#8be9fd;font-style:italic">String</span>) {
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, x);
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    print_string(<span style="color:#8be9fd">str</span>);
+    <span style="color:#6272a4">// strの所有権はprint_stinr()に移動したため、以降strは使えない
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>次のように、<code>print_string()</code>で<code>x</code>の所有権を返し、<code>main()</code>で所有権を受け取ることで解決できる。しかし、このような書き方は煩雑のため、「借用」を使うことで同様のことを実現する仕組みがある。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">print_string</span>(x: <span style="color:#8be9fd;font-style:italic">String</span>) -&gt; <span style="color:#8be9fd;font-style:italic">String</span>{
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, x);
+    x
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">let</span> str2 <span style="color:#ff79c6">=</span> print_string(<span style="color:#8be9fd">str</span>);
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, str2);
+    <span style="color:#6272a4">// =&gt; sampleと出力される
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><h1 id="借用">借用</h1>
+<p>借用とは、所有権をムーブせずに、所有権を一時的に貸し出す参照を作る仕組み。参照は、スコープが終了してもリソースを開放しない。上記の例を借用を用いて書き直したのが以下のプログラム。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">print_string</span>(x: <span style="color:#ff79c6">&amp;</span><span style="color:#8be9fd;font-style:italic">String</span>) {
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, x);
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    print_string(<span style="color:#ff79c6">&amp;</span><span style="color:#8be9fd">str</span>);
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, <span style="color:#8be9fd">str</span>);
+}
+</code></pre></div><p><code>&amp;</code>は参照を意味する。参照は何らかの実態を指すポインタで、デフォルトでイミュータブルのため、参照している値を変更できない。変更するには、<code>&amp;mut</code>を付けてミュータブルな参照を作る必要がある。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">print_string</span>(x: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">mut</span> <span style="color:#8be9fd;font-style:italic">String</span>) {
+    x.push_str(<span style="color:#f1fa8c">&#34; text&#34;</span>);
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, <span style="color:#8be9fd">str</span>);
+    print_string(<span style="color:#ff79c6">&amp;</span><span style="color:#ff79c6">mut</span> <span style="color:#8be9fd">str</span>);
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;{}&#34;</span>, <span style="color:#8be9fd">str</span>);
+}
+</code></pre></div><p>借用は、次のいずれか一方の状態を満たす必要がある。</p>
+<ul>
+<li>
+<p>ただ一つのミュータブルな参照が存在する状態</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">let</span> str1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span><span style="color:#ff79c6">mut</span> <span style="color:#8be9fd">str</span>;
+    str1.push_str(<span style="color:#f1fa8c">&#34; text&#34;</span>);
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;str1: {}&#34;</span>, str1);
+    <span style="color:#6272a4">// =&gt; sample text
+</span><span style="color:#6272a4"></span>}
+</code></pre></div></li>
+<li>
+<p>複数のイミュータブルな参照が存在する状態</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> <span style="color:#8be9fd">str</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">String</span>::from(<span style="color:#f1fa8c">&#34;sample&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">let</span> str1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span><span style="color:#8be9fd">str</span>;
+    <span style="color:#8be9fd;font-style:italic">let</span> str2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span><span style="color:#8be9fd">str</span>;
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;str1: {}, str2: {}&#34;</span>, str1, str2);
+    <span style="color:#6272a4">// =&gt; str1: sample, str2: sample
+</span><span style="color:#6272a4"></span>}
+</code></pre></div></li>
+</ul>
+<h1 id="ライフタイム">ライフタイム</h1>
+<p>ライフタイムとは、参照が有効になる範囲(スコープ)のこと。参照は、何らかの実体を指すポインタのため、その指している実体より長く生き残ることはできない。ライフタイムにより、ある参照には必ず実体が存在する、ということが保証される。多くの場合、プログラマはRustコンパイラがライフタイムを推論してくれるため、ライフタイムを明示的に指定する必要はない。Rustコンパイラは、借用チェッカにより参照のスコープを比較することで、参照が有効かをチェックする。</p>
+<p>例えば、下記のプログラムはコンパイルエラーが発生する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> y_ref;
+    {
+        <span style="color:#8be9fd;font-style:italic">let</span> y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+        y_ref <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>y;
+    }
+    println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;x = {}&#34;</span>, y_ref);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">error[E0597]: `y` does not live long enough
+ <span style="color:#ff79c6">-</span>-&gt; <span style="color:#50fa7b">src</span><span style="color:#ff79c6">/</span>main.rs:<span style="color:#bd93f9">5</span>:<span style="color:#bd93f9">17</span>
+  <span style="color:#ff79c6">|</span>
+<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">|</span>         y_ref <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>y;
+  <span style="color:#ff79c6">|</span>                 <span style="color:#ff79c6">^^</span> borrowed value does not live long enough
+<span style="color:#bd93f9">6</span> <span style="color:#ff79c6">|</span>     }
+  <span style="color:#ff79c6">|</span>     <span style="color:#ff79c6">-</span> `y` dropped here <span style="color:#ff79c6">while</span> still borrowed
+<span style="color:#bd93f9">7</span> <span style="color:#ff79c6">|</span>     println<span style="color:#ff79c6">!</span>(<span style="color:#f1fa8c">&#34;x = {}&#34;</span>, y_ref);
+  <span style="color:#ff79c6">|</span>                        <span style="color:#ff79c6">-----</span> borrow later used here
+</code></pre></div><p>これは、<code>y</code>のライフタイムは内側の<code>{}</code>であるのに対し、<code>y</code>を参照する<code>y_ref</code>はその外側であり、<code>y</code>は<code>y_ref</code>より長く生き残れないため、借用チェッカによりエラーが発生する。</p>
+<h1 id="まとめ">まとめ</h1>
+<p>Rustの所有権システムは、所有権、借用、ライフタイムの3つの概念から構成されている。</p>
+<p>「所有権」とは、ある値は一つの変数のみからしか読み書きを行わない、というルールのこと。所有権を持つ変数のスコープが終了すると、その値は破棄される。ある変数が所有する所有権は、他の変数へ移動(ムーブ)することができ、ムーブすると元の変数から値にアクセスできなくなる。</p>
+<p>ムーブすることなく、値へアクセスするために、「借用」という所有権を一時的に貸し出す仕組みにより、所有権を持つ変数への参照を作ることができる。借用は、「ただ一つのミュータブルな参照が存在する状態」、「複数のイミュータブルな参照が存在する状態」のいずれか一つの状態を満たすことができる。</p>
+<p>参照には「ライフタイム」が存在する。ライフタイムとは、その参照が有効であるスコープのこと。Rustコンパイラは、ライフタイムを比較することで、参照が有効であることを保証する。</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/macos-ftdi-ft232-usb-serial-device/" data-toggle="tooltip" data-placement="top" title="FTDI社製FT232シリーズのUSBシリアル変換アダプタをmacOSで使う">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/h8300-development-tools-for-macos/" data-toggle="tooltip" data-placement="top" title="H8/3069Fの開発ツールをmacOSに導入">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kozos" title="kozos">
+                            kozos
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/microcontroller" title="microcontroller">
+                            microcontroller
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/raspberry-pi" title="raspberry-pi">
+                            raspberry-pi
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/rust" title="rust">
+                            rust
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href='' rel="alternate"
+                            type="application/rss+xml" title="Keep Coding, Keep Climbing">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/mshrh3">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=NSCMi88AAAAJ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/masahiro.hiramori">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/mshr-h">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/masahiro-hiramori-63b992167/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Keep Coding, Keep Climbing 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a
+                        href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if ($('#tag_cloud').length !== 0) {
+        async("/js/jquery.tagcloud.js", function () {
+            $.fn.tagcloud.defaults = {
+                
+                color: { start: '#bbbbee', end: '#0085a1' },
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-165309045-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

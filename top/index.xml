@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tops on Keep Coding, Keep Climbing</title>
+    <link>https://keepcodingkeepclimbing.com/top/</link>
+    <description>Recent content in Tops on Keep Coding, Keep Climbing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    
+	<atom:link href="https://keepcodingkeepclimbing.com/top/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://keepcodingkeepclimbing.com/top/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/top/cv/</guid>
+      <description>Curriculum Vitae Basic information Name: Hiramori Masahiro (平森 将裕) E-mail: mhg00g13 at gmail.com Live in: Kanagawa, Japan Language Japanese - ILR Level 5 (Native or bilingual proficiency) English - ILR Level 2 (Limited working proficiency) Employment Research Engineer, Apr. 2017 - Present Information Technology R&amp;amp;D Center, Mitsubishi Electric Corporation, Japan. Education M. S. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr. 2015 -</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://keepcodingkeepclimbing.com/top/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://keepcodingkeepclimbing.com/top/about/</guid>
+      <description>Masahiro Hiramori is a SAMURAI research engineer working for industrial company in Japan. My interest is how the computer works.
+Interests  Computer architecture Embedded system TinyML Deep learning inference framework System/performance engineering Open source software Rock climbing  </description>
+    </item>
+    
+  </channel>
+</rss>

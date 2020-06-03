@@ -72,7 +72,6 @@ draft:  false
   + C (10+ years)
 * Profound
   + Python 3 (5+ years)
-    - Python and C/C++ interoperation(pybind11/Boost.Python/ctypes/Cython)
   + C++ 11 (2+ years)
   + Assembly (3+ years)
   + Go (3+ years)

@@ -11,7 +11,7 @@ categories:  ["Tech" ]
 draft:       false
 ---
 
-ONNX MLIRをビルドする手順。基本はGitHubのREADMEと同じ。
+[ONNX MLIR](https://github.com/onnx/onnx-mlir)をビルドする手順。基本はGitHubのREADMEに記載の手順と同じ。
 
 検証環境は
 

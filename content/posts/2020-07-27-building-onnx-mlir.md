@@ -3,7 +3,7 @@ title: "ONNX MLIRをビルドする"
 slug: "building-onnx-mlir"
 subtitle:    ""
 description: ""
-date:        "2020-07-08"
+date:        "2020-07-27"
 author:      "Masahiro Hiramori"
 image:       ""
 tags:        ["ONNX", "MLIR"]
@@ -21,7 +21,7 @@ draft:       false
 # ビルドツール導入
 
 ビルドに必要なツール群を導入する。
-Ubuntu 18.04の`libprotoc-dev`だとビルドできないため、別途手動で導入する必要がある。
+Ubuntu 18.04の場合、`libprotoc-dev`が古くてビルドできないため、別途手動で導入する必要がある。
 
 ```bash
 sudo apt install protobuf-compiler build-essential cmake libprotoc-dev ninja-build

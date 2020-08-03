@@ -7,6 +7,6 @@ date:        "{{ substr .Name 0 10 }}"
 author:      "Masahiro Hiramori"
 image:       ""
 tags:        []
-categories:  ["Tech" ]
+categories:  ["Tech"]
 draft:       false
 ---

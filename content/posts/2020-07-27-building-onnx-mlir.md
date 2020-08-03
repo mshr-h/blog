@@ -7,7 +7,7 @@ date:        "2020-07-27"
 author:      "Masahiro Hiramori"
 image:       ""
 tags:        ["ONNX", "MLIR"]
-categories:  ["Tech" ]
+categories:  ["Tech"]
 draft:       false
 ---
 

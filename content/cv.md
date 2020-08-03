@@ -9,6 +9,7 @@ draft: false
 
 - Name: Hiramori Masahiro (平森 将裕)
 - E-mail: mhg00g13 at gmail.com
+  - Please send text-only e-mail 
 - Live in: Kanagawa, Japan
 - Language
   - Japanese - ILR Level 5 (Native or bilingual proficiency)

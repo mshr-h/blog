@@ -11,7 +11,7 @@ categories:  ["Tech"]
 draft:       false
 ---
 
-C++コードを出力するMLIR Dialectをビルドする。
+C++コードを出力できるMLIR Dialectをビルドする。
 [ONNX MLIRをビルドする]({{< ref "/posts/2020-07-27-building-onnx-mlir.md" >}})でMLIRをビルド済みとする。
 MLIR(LLVM)のソースコードは`~/workspace/llvm-project`へ配置済み。
 

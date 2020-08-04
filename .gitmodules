@@ -1,6 +1,6 @@
 [submodule "public"]
 	path = public
-	url = ./public
+	url = git@github.com:mshr-h/mshr-h.github.io.git
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
-	url = https://github.com/dillonzq/LoveIt
+	url = https://github.com/dillonzq/LoveIt.git

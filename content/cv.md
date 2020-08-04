@@ -14,6 +14,10 @@ draft: false
 - Language
   - Japanese - ILR Level 5 (Native or bilingual proficiency)
   - English - ILR Level 2 (Limited working proficiency)
+- GitHub: [mshr-h](https://github.com/mshr-h)
+- Twitter: [mshrh3](https://twitter.com/mshrh3)
+- Facebook: [masahiro.hiramori](https://www.facebook.com/masahiro.hiramori/)
+- LinkedIn: [masahiro-hiramori-63b992167](https://www.linkedin.com/in/masahiro-hiramori-63b992167/)
 
 ## Employment
 

@@ -25,23 +25,23 @@ $ git clone https://github.com/iml130/mlir-emitc/
 # 環境変数設定
 
 ```bash
-$ export MLIR_DIR=$(pwd)/llvm-project/build/lib/cmake/mlir
-$ export LLVM_EXTERNAL_LIT~$(pwd)/llvm-project/build/bin/llvm-lit
+export MLIR_DIR=$(pwd)/llvm-project/build/lib/cmake/mlir
+export LLVM_EXTERNAL_LIT~$(pwd)/llvm-project/build/bin/llvm-lit
 ```
 
 # ビルド
 
 ```bash
-$ mkdir mlir-emitc/build && cd mlir-emitc/build
-$ cmake -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ .. \
+mkdir mlir-emitc/build && cd mlir-emitc/build
+cmake -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ .. \
   -DMLIR_DIR=$MLIR_DIR -DLLVM_EXTERNAL_LIT=$LLVM_EXTERNAL_LIT
-$ cmake --build . --target check-emitc
+cmake --build . --target check-emitc
 ```
 
 テストエラーが出るが、一応ビルドはできた。
 
 ```bash
-$ cmake --build . --target check-emitc
+cmake --build . --target check-emitc
 [12/13] Running the EmitC regression tests
 -- Testing: 2 tests, 2 workers --
 FAIL: EMITC :: Target/cpp-calls.mlir (1 of 2)
@@ -62,6 +62,6 @@ ninja: build stopped: subcommand failed.
 `bin`ディレクトリに`opt`と`translate`が生成される。
 
 ```bash
-$ ls bin
+ls bin
 emitc-opt  emitc-translate
 ```

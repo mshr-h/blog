@@ -25,7 +25,7 @@ ONNX MLIRのビルドディレクトリは`~/workspace/onnx-mlir/build`とする
 この実行ファイルをコマンドで実行できるように環境変数パスにディレクトリを追加する。
 
 ```bash
-$ export PATH=$PATH:~/workspace/onnx-mlir/build/bin
+export PATH=$PATH:~/workspace/onnx-mlir/build/bin
 ```
 
 # ONNXモデルを取得
@@ -33,8 +33,8 @@ $ export PATH=$PATH:~/workspace/onnx-mlir/build/bin
 例としてMNISTの学習済みモデルを取得する。
 
 ```bash
-$ cd ~/workspace
-$ wget https://github.com/onnx/models/raw/master/vision/classification/mnist/model/mnist-8.onnx
+cd ~/workspace
+wget https://github.com/onnx/models/raw/master/vision/classification/mnist/model/mnist-8.onnx
 ```
 
 # 変換実行
@@ -42,7 +42,7 @@ $ wget https://github.com/onnx/models/raw/master/vision/classification/mnist/mod
 ## shared libraryへ変換
 
 ```bash
-$ onnx-mlir --EmitLib mnist-8.onnx
+$ nnx-mlir --EmitLib mnist-8.onnx
 %22 = "krnl.getref"(%21, %c0_i64) : (memref<4096xi8>, i64) -> memref<1x1x32x32xf32>
 %20 = "krnl.getref"(%19, %c0_i64) : (memref<25088xi8>, i64) -> memref<1x8x28x28xf32>
 %18 = "krnl.getref"(%17, %c0_i64) : (memref<25088xi8>, i64) -> memref<1x8x28x28xf32>

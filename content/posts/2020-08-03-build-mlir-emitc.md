@@ -59,7 +59,7 @@ cd /home/mshr/workspace/mlir-emitc/build/test && /home/mshr/workspace/llvm-proje
 ninja: build stopped: subcommand failed.
 ```
 
-`bin`ディレクトリに`opt`と`translate`が生成される。
+`build/bin`ディレクトリに`emitc-opt`と`emitc-translate`が生成される。
 
 ```bash
 ls bin

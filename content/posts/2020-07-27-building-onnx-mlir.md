@@ -17,6 +17,7 @@ draft:       false
 
 - Ryzen 5 1600
 - Ubuntu 20.04 on WSL2
+- ONNX MLIR commit id dbe0d734b5687e0aa7da911684912163cea07bd2
 
 # ビルドツール導入
 

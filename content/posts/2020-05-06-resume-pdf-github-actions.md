@@ -6,7 +6,7 @@ description: ""
 date:        "2020-05-06"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        ["github"]
+tags:        ["GitHub"]
 categories:  ["Tech" ]
 draft:       false
 ---

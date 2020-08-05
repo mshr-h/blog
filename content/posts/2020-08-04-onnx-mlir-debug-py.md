@@ -6,7 +6,7 @@ description: ""
 date:        "2020-08-04"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["ONNX", "MLIR"]
 categories:  ["Tech"]
 draft:       false
 ---
@@ -19,6 +19,7 @@ draft:       false
 - 環境
   - macOS Catalina 10.15.6
   - Python 3.7.5 (pyenvで導入)
+  - ONNX MLIR commit id dbe0d734b5687e0aa7da911684912163cea07bd2
 - ONNX MLIRをビルド済み([ONNX MLIRをビルドする]({{< ref "/posts/2020-07-27-building-onnx-mlir.md" >}}))
   - ビルドディレクトリは`$HOME/workspace/onnx-mlir/build`とする
 - 作業ディレクトリは`$HOME/workspace/debug_test`とする

@@ -6,7 +6,7 @@ description: ""
 date:        "2020-05-13"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        ["tensorflow", "linux"]
+tags:        ["TensorFlow", "Linux"]
 categories:  ["Tech" ]
 draft:       false
 ---

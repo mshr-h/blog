@@ -33,11 +33,10 @@ export ONNX_MLIR_HOME=$HOME/workspace/onnx-mlir/build
 
 # 準備
 
-必要なファイルを作業ディレクトリにコピーする。
-`PyRuntime.*.so`(OS、Pythonバージョンに応じてファイル名が異なる)と`debug.py`、ONNXモデルファイルが必要。
+`debug.py`を作業ディレクトリにコピーする。
+ONNXモデルファイルの例としてmnistをダウンロードする。
 
 ```bash
-cp $HOME/workspace/onnx-mlir/build/lib/PyRuntime.cpython-37m-darwin.so $HOME/workspace/debug_test/
 cp $HOME/workspace/onnx-mlir/utils/debug.py $HOME/workspace/debug_test/
 wget https://github.com/onnx/models/raw/master/vision/classification/mnist/model/mnist-8.onnx
 ```

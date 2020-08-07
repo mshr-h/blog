@@ -41,7 +41,7 @@ ninja
 ninja check-mlir
 ```
 
-続いてCIRCUIT本体をビルドする。
+続いてCIRCT本体をビルドする。
 
 ```bash
 cd ~/workspace/circt

@@ -13,7 +13,7 @@ draft:       false
 
 [前回の記事]({{< ref "/posts/2020-07-27-building-onnx-mlir.md" >}})でビルドしたONNX MLIRを使って、[ONNX Model Zoo](https://github.com/onnx/models)で配布されている学習済みモデルを変換する。
 
-# 環境変数パスの設定
+## 環境変数パスの設定
 
 ONNX MLIRのビルドディレクトリは`~/workspace/onnx-mlir/build`とする。
 `~/workspace/onnx-mlir/build/bin`以下に次の2つの実行ファイルがあるはず。
@@ -28,7 +28,7 @@ ONNX MLIRのビルドディレクトリは`~/workspace/onnx-mlir/build`とする
 export PATH=$PATH:~/workspace/onnx-mlir/build/bin
 ```
 
-# ONNXモデルを取得
+## ONNXモデルを取得
 
 例としてMNISTの学習済みモデルを取得する。
 
@@ -37,9 +37,9 @@ cd ~/workspace
 wget https://github.com/onnx/models/raw/master/vision/classification/mnist/model/mnist-8.onnx
 ```
 
-# 変換実行
+## 変換実行
 
-## shared libraryへ変換
+### shared libraryへ変換
 
 ```bash
 $ nnx-mlir --EmitLib mnist-8.onnx
@@ -59,7 +59,7 @@ $ nnx-mlir --EmitLib mnist-8.onnx
 shared libraryが`mnist-8.so`が生成される。
 現時点でドキュメントはほとんど整備されていないので、テストコード等から使い方を解析する必要がある。
 
-## MLIRのtransformation dialectへ変換
+### MLIRのtransformation dialectへ変換
 
 ```bash
 $ onnx-mlir --EmitMLIR mnist-8.onnx
@@ -360,7 +360,7 @@ module {
 }
 ```
 
-## transformation dialectからLLVM dialectへ変換
+### transformation dialectからLLVM dialectへ変換
 
 上記で出力したtransformation dialectをLLVM dialectへ変換する。
 
@@ -2428,7 +2428,7 @@ module {
 }
 ```
 
-# コマンドのヘルプ
+## コマンドのヘルプ
 
 `onnx-mlir`コマンドのヘルプ
 

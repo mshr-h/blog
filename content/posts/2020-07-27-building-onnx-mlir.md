@@ -19,7 +19,7 @@ draft:       false
 - Ubuntu 20.04 on WSL2
 - ONNX MLIR commit id dbe0d734b5687e0aa7da911684912163cea07bd2
 
-# ビルドツール導入
+## ビルドツール導入
 
 ビルドに必要なツール群を導入する。
 Ubuntu 18.04の場合、`libprotoc-dev`が古くてビルドできないため、別途手動で導入する必要がある。
@@ -28,7 +28,7 @@ Ubuntu 18.04の場合、`libprotoc-dev`が古くてビルドできないため�
 sudo apt install protobuf-compiler build-essential cmake libprotoc-dev ninja-build
 ```
 
-# MLIRのビルド
+## MLIRのビルド
 
 カレントディレクトリは`~/workspace`とする。
 
@@ -57,7 +57,7 @@ cmake --build .
 cmake --build . --target check-mlir
 ```
 
-# ONNX MLIRのビルド
+## ONNX MLIRのビルド
 
 onnx-mlirのソースコードを取得する。
 

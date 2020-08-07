@@ -14,7 +14,7 @@ draft:       false
 [ONNX MLIR](https://github.com/onnx/onnx-mlir)に付属の[debug.py](https://github.com/onnx/onnx-mlir/blob/master/utils/debug.py)を動かす手順。
 `.so`ファイルの実行手順を解析するための事前準備。
 
-# 前提条件
+## 前提条件
 
 - 環境
   - macOS Catalina 10.15.6
@@ -24,7 +24,7 @@ draft:       false
   - ビルドディレクトリは`$HOME/workspace/onnx-mlir/build`とする
 - 作業ディレクトリは`$HOME/workspace/debug_test`とする
 
-# 環境変数の設定
+## 環境変数の設定
 
 `ONNX_MLIR_HOME`にONNX MLIRのビルドディレクトリを設定する。
 
@@ -32,7 +32,7 @@ draft:       false
 export ONNX_MLIR_HOME=$HOME/workspace/onnx-mlir/build
 ```
 
-# 準備
+## 準備
 
 `debug.py`を作業ディレクトリにコピーする。
 ONNXモデルファイルの例としてmnistをダウンロードする。
@@ -48,7 +48,7 @@ Pythonのonnxパッケージを導入する。
 pip3 install onnx
 ```
 
-# 実行
+## 実行
 
 `debug.py`を見る限り、ONNX MLIRでONNXモデルファイルを`.so`へ変換し、実行するようだ。
 
@@ -70,7 +70,7 @@ Verifying value of Times212_Output_0
 Verifying value of Plus214_Output_0
 ```
 
-# ヘルプ情報
+## ヘルプ情報
 
 ```bash
 python3 debug.py -h

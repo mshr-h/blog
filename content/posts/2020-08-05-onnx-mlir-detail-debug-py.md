@@ -13,9 +13,9 @@ draft:       false
 
 [ONNX MLIRに付属のdebug.pyを動かす]({{< ref "/posts/2020-08-04-onnx-mlir-debug-py.md" >}})で動かした`debug.py`の中を見る。
 
-# `debug.py`の処理内容
+## `debug.py`の処理内容
 
-## 概要
+### 概要
 
 - 入力として指定したONNXモデルを、ONNX MLIRでshared libraryとしてビルド、実行し、リファレンスバックエンドで実行した結果と比較する
 - リファレンスバックエンドにはONNX Runtimeを使用
@@ -24,7 +24,7 @@ draft:       false
 - `PyRuntime`はおそらく、ONNX MLIRでビルドしたshared libraryを、Pythonから実行するためのPythonバインディング
   - shared libraryの実行方法は`PyRuntime`の実装を見る必要がありそう
 
-## 詳細
+### 詳細
 
 `import onnxruntime`でONNX Runtimeをインポートする。
 

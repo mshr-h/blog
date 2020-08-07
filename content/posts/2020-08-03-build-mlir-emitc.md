@@ -15,21 +15,21 @@ draft:       false
 [ONNX MLIRをビルドする]({{< ref "/posts/2020-07-27-building-onnx-mlir.md" >}})でMLIRをビルド済みとする。
 MLIR(LLVM)のソースコードは`~/workspace/llvm-project`へ配置済み。
 
-# ソースコード取得
+## ソースコード取得
 
 ```bash
 $ cd ~/workspace
 $ git clone https://github.com/iml130/mlir-emitc/
 ```
 
-# 環境変数設定
+## 環境変数設定
 
 ```bash
 export MLIR_DIR=$(pwd)/llvm-project/build/lib/cmake/mlir
 export LLVM_EXTERNAL_LIT~$(pwd)/llvm-project/build/bin/llvm-lit
 ```
 
-# ビルド
+## ビルド
 
 ```bash
 mkdir mlir-emitc/build && cd mlir-emitc/build

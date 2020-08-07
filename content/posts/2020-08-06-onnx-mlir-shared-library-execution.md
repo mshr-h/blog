@@ -1,6 +1,6 @@
 ---
-title: "ONNX MLIRで出力したshared libraryを実行するPythonスクリプト"
-slug: "onnx-mlir-shared-library-execution"
+title: "ONNX MLIRで出力したshared libraryを実行する"
+slug: "run-onnx-mlir-shared-library"
 subtitle:    ""
 description: ""
 date:        "2020-08-06"

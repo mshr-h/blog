@@ -12,7 +12,7 @@ draft:       false
 ---
 
 [CIRCT(Circuit IR Compilers and Tools)](https://github.com/llvm/circt)はMLIRベースのRTL生成ツール。
-READMEにしたがってビルド、サンプル回路をコンパイルしたので手順のメモ。
+READMEにしたがってビルド、サンプル回路をコンパイルした。
 
 ## 環境
 

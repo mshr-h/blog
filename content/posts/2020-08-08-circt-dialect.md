@@ -1,5 +1,5 @@
 ---
-title: "CIRCTのDialect変換パス調査"
+title: "CIRCTのDialect調査"
 slug: "circt-dialect"
 subtitle:    ""
 description: ""

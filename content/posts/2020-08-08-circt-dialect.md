@@ -12,6 +12,8 @@ draft:       false
 ---
 
 CIRCTに含まれるDialectとその変換パスを調査。
+Dialectの変換はソースコードの以下に存在。
+- [lib/Conversion](https://github.com/llvm/circt/tree/master/lib/Conversion)
 
 ## Dialect一覧
 

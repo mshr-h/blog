@@ -12,6 +12,8 @@ draft:       false
 ---
 
 ONNX MLIRに含まれるDialectとその変換パスを調査。
+Dialectの変換はソースコードの以下に存在。
+- [src/Conversion](https://github.com/onnx/onnx-mlir/tree/master/src/Conversion)
 
 ## Dialect一覧
 

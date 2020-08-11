@@ -36,7 +36,7 @@ draft:       false
 
 の順で進める。
 
-# ビルドに必要なPythonパッケージの導入
+## ビルドに必要なPythonパッケージの導入
 
 公式手順通りにPythonパッケージを導入する。
 
@@ -47,7 +47,7 @@ $ pip install -U --user keras_applications==1.0.6 --no-deps
 $ pip install -U --user keras_preprocessing==1.0.5 --no-deps
 ```
 
-# Bazelの導入
+## Bazelの導入
 
 2018/12/16時点の最新版(0.20.0)だとビルドできないので、古い0.15.0を導入する。
 
@@ -57,7 +57,7 @@ $ sudo dpkg -i bazel_0.15.0-linux-x86_64.deb
 $ sudo apt install -f -y
 ```
 
-# TensorFlowソースコード取得
+## TensorFlowソースコード取得
 
 TensorFlowのソースコードを取得します。今回は、v1.12.0をビルドするので、該当tagをチェックアウトする。
 
@@ -67,7 +67,7 @@ $ cd tensorflow
 $ git checkout v1.12.0
 ```
 
-# ビルドコンフィグ生成
+## ビルドコンフィグ生成
 
 ビルドコンフィグを生成する。今回はデフォルトのままで進める。
 
@@ -109,7 +109,7 @@ Preconfigured Bazel build configs. You can use any of the below by adding "--con
 Configuration finished
 ```
 
-# ビルド実施
+## ビルド実施
 
 ビルドを開始する。今回のビルド環境だと1時間半程度かかる。
 
@@ -141,7 +141,7 @@ warning: no files found matching '*' under directory 'tensorflow/include/unsuppo
 Sat Dec 15 22:50:10 DST 2018 : === Output wheel file is in: /tmp/tensorflow_pkg
 ```
 
-# ビルドしたTensorFlowの導入
+## ビルドしたTensorFlowの導入
 
 pipコマンドによりビルドしたTensorFlowを導入する。
 
@@ -149,7 +149,7 @@ pipコマンドによりビルドしたTensorFlowを導入する。
 $ pip install --user /tmp/tensorflow_pkg/tensorflow-1.12.0-cp27-cp27mu-linux_x86_64.whl
 ```
 
-# MNISTを学習
+## MNISTを学習
 
 ビルドしたTensorFlowの動作確認のために、TensorFlow公式チュートリアルに記載のMNISTを学習する。
 

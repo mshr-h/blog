@@ -429,9 +429,6 @@ posts = "posts/:slug"
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
 
-# privacy of the Google Analytics (replaced by params.analytics.google)
-[privacy.googleAnalytics]
-
 # ...
 [privacy.twitter]
 enableDNT = true

@@ -25,7 +25,8 @@ draft:       false
 Ubuntu 18.04の場合、`libprotoc-dev`が古くてビルドできないため、別途手動で導入する必要がある。
 
 ```bash
-sudo apt install protobuf-compiler build-essential cmake libprotoc-dev ninja-build libncurses python3
+sudo apt install protobuf-compiler build-essential cmake libprotoc-dev \
+     ninja-build libncurses python3 python3-dev
 ```
 
 ## MLIRのビルド

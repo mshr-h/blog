@@ -6,7 +6,7 @@ description: ""
 date:        "2020-08-05"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        []
+tags:        ["ONNX", "MLIR", "Python"]
 categories:  ["Tech"]
 draft:       false
 ---

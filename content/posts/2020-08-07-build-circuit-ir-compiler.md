@@ -6,7 +6,7 @@ description: ""
 date:        "2020-08-07"
 author:      "Masahiro Hiramori"
 image:       ""
-tags:        ["Circuit", "MLIR"]
+tags:        ["CIRCT", "MLIR"]
 categories:  ["Tech"]
 draft:       false
 ---

@@ -113,7 +113,7 @@ draft: false
 
 ### Hardware development
 
-- FPGA, Quartus II, Verilog-HDL
+- FPGA/Quartus II/Verilog-HDL
   - Built a full scratch 16-bit RISC CPU
   - Built a video compression hardware
     - [mshr-h/motion_estimation_processor_fullsearch](https://github.com/mshr-h/motion_estimation_processor_fullsearch)

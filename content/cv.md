@@ -27,7 +27,7 @@ draft: false
 ## Education
 
 - M. S. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr. 2015 - Mar. 2017
-- B. A. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr.2011 - Mar. 2015
+- B. A. in Information Science and Technology, Osaka Institute of Technology, Japan. Apr. 2011 - Mar. 2015
 
 ## Publications
 
@@ -40,7 +40,7 @@ draft: false
 
 - **平森 将裕**, 出口 昌弘, 大木 英俊, 水口 武尚. 組込み向けディープラーニングフレームワークの評価, In 第 148 回 OS 研究会, 2020.
 - 出口 昌弘，**平森 将裕**，水口 武尚. 組み込み機器適用のためのディープラーニングフレームワーク使用リソース調査と評価, In 第 145 回 OS 研究会, 2019.
-- **Masahiro Hiramori**, Atsushi Settsu. Performance Evaluation of Deep Learning Framework “Caffe” for Embedded Devices, In ETNET, 2018.
+- **平森 将裕**, 攝津 敦. 組込み機器に向けたCaffeの性能評価, In ETNET, 2018.
 - 阪東亮太, **平森将裕**, 岩出秀平, 牧野博之, 布村泰浩, 吉村 勉, 松田吉雄. 動画像における動きベクトル検出手法の検討 ―4画素精度動き補償の評価 ―, In 画像関連学会連合会第二回秋季大会プログラム, 2015.
 - **平森将裕**, 大加茂祐輔, 岩出秀平, 牧野博之, 吉村勉, 松田吉雄. 動きベクトル探索の高速化手法の改善（その1）～比較画素単位での評価ビットシフト法, In 電気関係学会 関西支部連合大会, 講演論文集, 2014.
 - 大加茂祐輔, **平森将裕**, 岩出秀平, 牧野博之, 吉村勉, 松田吉雄. 動きベクトル探索の高速化手法に関する一検討, In 電気関係学会関西支部連合大会 講演論文集, 2014.
@@ -79,19 +79,19 @@ draft: false
   - Python 3 (5+ years)
     - Python - C/C++ interoperation, PyBind11
   - C++ 11 (2+ years)
-  - Assembly (3+ years)
   - Go (3+ years)
 
-### Machine learning tools
+### Machine learning
 
+- ONNX Runtime
+- TVM/ONNX-MLIR
 - TensorFlow/TensorFlow Lite
 - PyTorch
 - Caffe
-- ONNX Runtime
 
 ### Version control
 
-- Git/GitHub/GitLab
+- Git/GitHub
 
 ### Development tools
 
@@ -100,7 +100,7 @@ draft: false
 - Docker/chroot/qemu
 - gdb
 - Visual Studio
-- Travis CI/GitHub Actions
+- GitHub Actions/Travis CI
 
 ### Embedded systems
 
@@ -109,7 +109,6 @@ draft: false
 - ARM Cortex-M4
 - Realtime OS
 - H8/3069F
-- RISC-V
 
 ### Hardware development
 

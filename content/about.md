@@ -10,9 +10,10 @@ industrial company in Japan. My interest is how the computer works.
 
 ## Interests
 
+- Open source software
 - Computer architecture
 - TinyML
 - Deep learning inference framework
+- Deep learning compiler
 - System/performance engineering
-- Open source software
 - Rock climbing

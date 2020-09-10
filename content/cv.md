@@ -12,8 +12,8 @@ draft: false
   - Please send text-only e-mail 
 - Live in: Kanagawa, Japan
 - Language
-  - Japanese - ILR Level 5 (Native or bilingual proficiency)
-  - English - ILR Level 2 (Limited working proficiency)
+  - Japanese - Native proficiency
+  - English - Limited working proficiency
 - GitHub: [mshr-h](https://github.com/mshr-h)
 - Twitter: [mshrh3](https://twitter.com/mshrh3)
 - Facebook: [masahiro.hiramori](https://www.facebook.com/masahiro.hiramori/)
@@ -50,7 +50,7 @@ draft: false
 ### Projects
 
 - [vscode-verilog-hdl-support](https://github.com/mshr-h/vscode-verilog-hdl-support)
-  - VS Code extension for Verilog HDL/SystemVerilog support
+  - VS Code extension for Verilog HDL/SystemVerilog/Bluespec SystemVerilog support
 - [motion_estimation_simulator](https://github.com/mshr-h/motion_estimation_simulator)
   - Motion estimation simulator written in C
 - [fibonacci_verilog](https://github.com/mshr-h/fibonacci_verilog)
@@ -62,6 +62,8 @@ draft: false
 
 ### OSS Contributions
 
+- onnx/onnx-mlir
+  - [Commits list in GitHub](https://github.com/onnx/onnx-mlir/commits?author=mshr-h)
 - dense-analysis/ale
   - [Commits list in GitHub](https://github.com/dense-analysis/ale/commits?author=mshr-h)
 - textmate/verilog.tmbundle
@@ -77,7 +79,8 @@ draft: false
   - C (10+ years)
 - Profound
   - Python 3 (5+ years)
-    - Python - C/C++ interoperation, PyBind11
+    - Python - C/C++ interoperation
+    - PyBind11
   - C++ 11 (2+ years)
   - Go (3+ years)
 
@@ -133,6 +136,6 @@ draft: false
 ## Certifications
 
 - TOEIC Listening &#38; Reading score 840 | May 2017
-- TOEIC Speaking &#38; Writing score 210 | Jan 2015
+- TOEIC Speaking &#38; Writing score 290 (Speaking: 130/200, Writing: 160/200) | Aug 2020
 - Embedded Systems Specialist Examination (エンベデッドシステムスペシャリスト試験) | June 2015
 - Information Security Specialist Examination (情報セキュリティスペシャリスト試験) | Dec 2014

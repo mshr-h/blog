@@ -83,10 +83,9 @@ draft: false
 
 ### Machine learning
 
-- ONNX Runtime
-- TVM/ONNX-MLIR
+- ONNX Runtime/ONNX-MLIR
+- TVM
 - TensorFlow/TensorFlow Lite
-- PyTorch
 - Caffe
 
 ### Version control

@@ -17,7 +17,7 @@ draft:       false
 
 - Ryzen 5 1600
 - Ubuntu 20.04 on WSL2
-- ONNX MLIR commit id dbe0d734b5687e0aa7da911684912163cea07bd2
+- ONNX MLIR commit id ac67900
 
 ## ビルドツール導入
 
@@ -26,7 +26,7 @@ Ubuntu 18.04の場合、`libprotoc-dev`が古くてビルドできないため�
 
 ```bash
 sudo apt install protobuf-compiler build-essential cmake libprotoc-dev \
-     ninja-build libncurses python3 python3-dev
+     ninja-build libncurses python3 python3-dev python-is-python3
 ```
 
 ## MLIRのビルド
@@ -38,7 +38,7 @@ LLVM内にあるMLIRを取得し、ONNX MLIRのビルドが確認できている
 ```BASH
 cd ~/workspace
 git clone https://github.com/llvm/llvm-project.git
-cd llvm-project && git checkout 32791937d7aceb0a5e1eaabf1bb1a6dbe1639792 && cd ..
+cd llvm-project && git checkout 1d01fc100bb5bef5f5eaf92520b2e52f64ee1d6e && cd ..
 ```
 
 ビルドする。Ryzen 5 1600で20分程度。
